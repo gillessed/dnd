@@ -1,0 +1,19 @@
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'com.gillessed.dnd.DndServerMain'
+
+run {
+    args 'server', 'server.yml'
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    processor "org.immutables:value:${immutablesVersion}"
+    compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-auth:${dropwizardVersion}"
+    compile "com.hubspot.dropwizard:dropwizard-guice:${dropwizardGuiceVersion}"
+}

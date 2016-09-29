@@ -1,0 +1,28 @@
+apply plugin: 'idea'
+apply plugin: 'maven'
+
+buildscript {
+  repositories {
+    maven {
+      url "https://plugins.gradle.org/m2/"
+    }
+  }
+  dependencies {
+    classpath "gradle.plugin.org.inferred:gradle-processors:${processorsVersion}"
+  }
+}
+
+idea {
+    project {
+        jdkName = '1.8'
+        languageLevel = '1.8'
+    }
+}
+
+allprojects {
+    apply plugin: 'org.inferred.processors'
+    version = '0.1.0'
+    repositories {
+        mavenCentral()
+    }
+}

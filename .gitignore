@@ -6,4 +6,14 @@ node_modules
 dist
 coverage
 
+.gradle/
+
 .idea/
+*.ipr
+*.iml
+*.iws
+out/
+build/
+generated_src/
+
+web/semantic/
