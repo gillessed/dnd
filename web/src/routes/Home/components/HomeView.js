@@ -1,15 +1,18 @@
 import React from 'react'
-import DuckImage from '../assets/Duck.jpg'
 import './HomeView.scss'
 
 export const HomeView = () => (
-  <div>
-    <h4>Welcome!</h4>
-    <img
-      alt='This is a duck, because Redux!'
-      className='duck'
-      src={DuckImage} />
-  </div>
-)
+    <div>
+        <h1 className='ui header'>Welcome to my DnD page!</h1>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+        <p> This site contains some helpful pages for dungeons and dragons and my upcoming campaign!</p>
+    </div>
+);
 
 export default HomeView
