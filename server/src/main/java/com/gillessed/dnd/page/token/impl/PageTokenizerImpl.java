@@ -41,7 +41,7 @@ public class PageTokenizerImpl implements PageTokenizer {
     private TokenType tokenType;
     private List<Token> tokens;
 
-    private PageTokenizerImpl() {
+    public PageTokenizerImpl() {
         tokenStartLineNumber = 1;
         tokenStartColumnNumber = 1;
         tokenEndLineNumber = 1;
@@ -235,9 +235,5 @@ public class PageTokenizerImpl implements PageTokenizer {
             default:
                 throw new IllegalStateException("Internal parsing error. Got state of " + state + " in context " + context);
         }
-    }
-
-    public static List<Token> getTokens(String input) throws TokenizerException{
-        return new PageTokenizerImpl().tokenize(input);
     }
 }

@@ -16,7 +16,7 @@ public class SectionCompiler extends AbstractObjectCompiler implements ObjectCom
         checkThreeTextEnd(elements);
         String ref = parseAttribute("ref", elements.get(0));
         return ImmutableWikiSection.builder()
-                .text(elements.get(1).getValue())
+                .text(elements.get(1).getValue().trim())
                 .ref(ref)
                 .build();
     }

@@ -1,37 +1,42 @@
 package com.gillessed.dnd.rest.services;
 
-import com.gillessed.dnd.rest.model.User;
+import com.gillessed.dnd.rest.model.auth.Session;
+import com.gillessed.dnd.rest.model.auth.User;
+import com.google.common.collect.ImmutableMap;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
-import javax.inject.Singleton;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Singleton
 public class AuthService {
+    private static final User ADMIN = new User("1", "admin", "palantir");
+
     private final Map<String, User> users;
     private final Map<String, User> tokens;
 
+    @Inject
     public AuthService() {
-        users = new ConcurrentHashMap<>();
-        users.put("123", new User("123", "456"));
-        tokens = new ConcurrentHashMap<>();
-        tokens.put("admin", users.get("123"));
+        users = new HashMap<>(ImmutableMap.<String, User>builder()
+                .put("admin", ADMIN)
+                .build());
+        tokens = new HashMap<>(ImmutableMap.<String, User>builder()
+                .put("token", ADMIN)
+                .build());
     }
 
-    public Optional<String> login(String username, String password) {
+    public Optional<Session> login(String username, String password) {
         User user = users.getOrDefault(username, null);
         if(user == null || !user.getPassword().equals(password)) {
             return Optional.empty();
         }
+
         String token = generateToken(user);
         tokens.put(token, user);
-        return Optional.of(token);
+        return Optional.of(new Session(token, user));
     }
 
     private String generateToken(User user) {
@@ -41,10 +46,11 @@ public class AuthService {
         return newToken;
     }
 
-    public Optional<User> verifyToken(String token) {
-        if(token == null || !tokens.containsKey(token)) {
+    public Optional<Session> verifyToken(String token) {
+        User user = tokens.getOrDefault(token, null);
+        if(user == null) {
             return Optional.empty();
         }
-        return Optional.of(tokens.get(token));
+        return Optional.of(new Session(token, user));
     }
 }

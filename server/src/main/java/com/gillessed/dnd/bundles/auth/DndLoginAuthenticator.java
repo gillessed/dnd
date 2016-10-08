@@ -1,6 +1,6 @@
 package com.gillessed.dnd.bundles.auth;
 
-import com.gillessed.dnd.rest.model.User;
+import com.gillessed.dnd.rest.model.auth.Session;
 import com.gillessed.dnd.rest.services.AuthService;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
@@ -22,14 +22,10 @@ public class DndLoginAuthenticator implements Authenticator<BasicCredentials, Dn
 
     @Override
     public Optional<DndPrincipal> authenticate(BasicCredentials credentials) throws AuthenticationException {
-        Optional<String> bearerToken = authService.login(credentials.getUsername(), credentials.getPassword());
-        if (!bearerToken.isPresent()) {
+        Optional<Session> session = authService.login(credentials.getUsername(), credentials.getPassword());
+        if (!session.isPresent()) {
             return Optional.empty();
         }
-        Optional<User> user = authService.verifyToken(bearerToken.get());
-        if (!user.isPresent()) {
-            return Optional.empty();
-        }
-        return Optional.of(new DndPrincipalImpl(user.get()));
+        return Optional.of(new DndPrincipalImpl(session.get()));
     }
 }

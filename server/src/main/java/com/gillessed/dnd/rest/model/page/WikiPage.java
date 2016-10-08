@@ -9,5 +9,6 @@ import java.util.List;
 @Value.Immutable
 @JsonSerialize
 public interface WikiPage {
+    String getTitle();
     List<WikiObject> getWikiObjects();
 }

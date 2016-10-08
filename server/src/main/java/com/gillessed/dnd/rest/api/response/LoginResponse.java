@@ -9,4 +9,5 @@ import org.immutables.value.Value;
 @JsonDeserialize(as = ImmutableLoginResponse.class)
 public interface LoginResponse {
     String getToken();
+    String getUserId();
 }

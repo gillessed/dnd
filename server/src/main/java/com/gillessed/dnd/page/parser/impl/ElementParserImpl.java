@@ -28,7 +28,7 @@ public class ElementParserImpl implements ElementParser {
     private Element.Type elementType;
     private State state;
 
-    private ElementParserImpl() {
+    public ElementParserImpl() {
         tokenIndex = 0;
         elementTokens = new ArrayList<>();
         elementType = null;
@@ -190,9 +190,5 @@ public class ElementParserImpl implements ElementParser {
                 elementTokens.get(0).getStartColumn(),
                 elementTokens.get(elementTokens.size() - 1).getEndLineNumber(),
                 elementTokens.get(elementTokens.size() - 1).getEndColumn());
-    }
-
-    public static List<Element> getElements(List<Token> tokens) throws ElementException {
-        return new ElementParserImpl().parseTokens(tokens);
     }
 }

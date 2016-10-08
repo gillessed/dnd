@@ -7,7 +7,7 @@ import org.immutables.value.Value;
 
 @Value.Immutable
 @JsonSerialize
-@JsonTypeName(WikiTitle.type)
+@JsonTypeName(WikiText.type)
 public interface WikiText extends WikiObject {
     String type = "text";
     String getValue();

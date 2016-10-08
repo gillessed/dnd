@@ -1,6 +1,8 @@
 package com.gillessed.dnd.bundles.guice;
 
 import com.gillessed.dnd.rest.resources.AuthResource;
+import com.gillessed.dnd.rest.resources.PageResource;
+import com.gillessed.dnd.rest.resources.SearchResource;
 import com.google.common.collect.ImmutableList;
 import com.google.inject.AbstractModule;
 
@@ -10,10 +12,12 @@ public class DndResourcesModule extends AbstractModule {
 
     public static List<Class<?>> RESOURCE_CLASSES = ImmutableList.<Class<?>>builder()
             .add(AuthResource.class)
+            .add(PageResource.class)
+            .add(SearchResource.class)
             .build();
 
     @Override
     protected void configure() {
-        RESOURCE_CLASSES.forEach((Class<?> resourceClass) -> bind(resourceClass));
+        RESOURCE_CLASSES.forEach(this::bind);
     }
 }

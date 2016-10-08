@@ -17,10 +17,10 @@ public class DndSessionAuthFilter<P extends Principal> extends AuthFilter<DndBea
 
     @Override
     public void filter(ContainerRequestContext requestContext) throws IOException {
-        String bearerToken = requestContext.getHeaderString("auth-token");
+        String bearerToken = requestContext.getHeaderString("X-Auth-Token");
         DndBearerTokenCredential credential = new DndBearerTokenCredentialImpl(bearerToken);
-        if (!authenticate(requestContext, credential, "auth-token")) {
-            throw new WebApplicationException(unauthorizedHandler.buildResponse("", "auth-token"));
+        if (!authenticate(requestContext, credential, "X-Auth-Token")) {
+            throw new WebApplicationException(unauthorizedHandler.buildResponse("", "X-Auth-Token"));
         }
     }
 
@@ -28,7 +28,7 @@ public class DndSessionAuthFilter<P extends Principal> extends AuthFilter<DndBea
 
         public Builder() {
             this.setUnauthorizedHandler(new TokenUnauthorizedHandler());
-            this.setRealm("auth-token");
+            this.setRealm("X-Auth-Token");
             this.setPrefix("");
         }
 

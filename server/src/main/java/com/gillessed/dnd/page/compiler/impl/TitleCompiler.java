@@ -16,7 +16,7 @@ public class TitleCompiler extends AbstractObjectCompiler implements ObjectCompi
         checkThreeTextEnd(elements);
         checkAttributesEmpty(elements);
         return ImmutableWikiTitle.builder()
-                .text(elements.get(1).getValue())
+                .text(elements.get(1).getValue().trim())
                 .build();
     }
 }

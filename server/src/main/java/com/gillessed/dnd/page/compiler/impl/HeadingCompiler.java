@@ -16,7 +16,7 @@ public class HeadingCompiler extends AbstractObjectCompiler implements ObjectCom
         checkThreeTextEnd(elements);
         int level = parseIntAttribute("level", elements.get(0));
         return ImmutableWikiHeading.builder()
-                .text(elements.get(1).getValue())
+                .text(elements.get(1).getValue().trim())
                 .level(level)
                 .build();
     }

@@ -2,6 +2,7 @@ package com.gillessed.dnd.page.compiler;
 
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.compiler.impl.HeadingCompiler;
+import com.gillessed.dnd.page.compiler.impl.LinkCompiler;
 import com.gillessed.dnd.page.compiler.impl.ParagraphCompiler;
 import com.gillessed.dnd.page.compiler.impl.SectionCompiler;
 import com.gillessed.dnd.page.compiler.impl.TextCompiler;
@@ -17,23 +18,25 @@ import java.util.Map;
 
 public class ObjectCompilerFactory {
     private static final String PARAGRAPH_SHORTHAND = "p";
+    private static final String LINK_SHORTHAND = "a";
 
-    private static Map<String, ObjectCompiler> compilers = ImmutableMap.<String, ObjectCompiler>builder()
-            .put(WikiText.type, new TextCompiler())
-            .put(WikiTitle.type, new TitleCompiler())
-            .put(WikiSection.type, new SectionCompiler())
-            .put(WikiHeading.type, new HeadingCompiler())
-            .put(PARAGRAPH_SHORTHAND, new ParagraphCompiler())
-            .build();
+    private final Map<String, ObjectCompiler> compilers;
 
-    public static ObjectCompiler getObjectCompilerForObjectType(Element element) throws CompilerException {
+    public ObjectCompilerFactory(String root) {
+        this.compilers = ImmutableMap.<String, ObjectCompiler>builder()
+                .put(WikiText.type, new TextCompiler())
+                .put(WikiTitle.type, new TitleCompiler())
+                .put(WikiSection.type, new SectionCompiler())
+                .put(WikiHeading.type, new HeadingCompiler())
+                .put(PARAGRAPH_SHORTHAND, new ParagraphCompiler(this))
+                .put(LINK_SHORTHAND, new LinkCompiler(root))
+                .build();
+    }
+
+    public ObjectCompiler getObjectCompilerForObjectType(Element element) throws CompilerException {
         if (compilers.containsKey(element.getElementName())) {
             return compilers.get(element.getElementName());
         }
         throw new CompilerException(element, "No compiler for object " + element.getElementName());
-    }
-
-    private ObjectCompilerFactory() {
-        throw new UnsupportedOperationException();
     }
 }

@@ -19,9 +19,6 @@ import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by gcole on 8/16/16.
- */
 public class DndAuthBundle implements Bundle {
 
     private final Provider<DndSessionAuthenticator> mobileSessionTokenAuthenticator;
