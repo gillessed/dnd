@@ -1,1 +1,1 @@
-const SERVER_URL='http://192.168.1.3:9010';
+const SERVER_URL='http://localhost:9010';

@@ -6,14 +6,10 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.gillessed.dnd.rest.model.page.WikiObject;
 import org.immutables.value.Value;
 
-import java.util.List;
-
 @Value.Immutable
 @JsonSerialize
-@JsonTypeName(WikiSection.type)
-public interface WikiSection extends WikiObject {
+@JsonTypeName(WikiSectionHeader.type)
+public interface WikiSectionHeader extends WikiObject {
     String type = "section";
     String getText();
-    int getIndex();
-    List<WikiObject> getWikiObjects();
 }

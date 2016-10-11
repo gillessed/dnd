@@ -2,6 +2,8 @@ package com.gillessed.dnd.rest.model.page;
 
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.gillessed.dnd.rest.model.page.objects.WikiSection;
+import com.gillessed.dnd.rest.model.page.objects.WikiTitle;
 import org.immutables.value.Value;
 
 import java.util.List;
@@ -10,5 +12,6 @@ import java.util.List;
 @JsonSerialize
 public interface WikiPage {
     String getTitle();
-    List<WikiObject> getWikiObjects();
+    WikiTitle getTitleObject();
+    List<WikiSection> getWikiSections();
 }

@@ -1,0 +1,10 @@
+a.wikiLink {
+  color: #0b97c4;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+a.wikiLink.broken {
+  color: #ed0000;
+}

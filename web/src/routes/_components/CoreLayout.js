@@ -14,9 +14,9 @@ class CoreLayout extends Component {
     }
     render() {
         return (
-<div>
+<div id='fullPage'>
     <Header/>
-    <div className='ui main text container'>
+    <div className='ui main text container bound bottom'>
         <Notifications/>
         {this.props.children}
     </div>

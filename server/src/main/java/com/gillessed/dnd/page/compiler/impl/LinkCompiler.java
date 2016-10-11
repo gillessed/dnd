@@ -7,6 +7,10 @@ import com.gillessed.dnd.page.parser.Element;
 import com.gillessed.dnd.rest.model.page.WikiObject;
 import com.gillessed.dnd.rest.model.page.objects.ImmutableWikiLink;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class LinkCompiler extends AbstractObjectCompiler implements ObjectCompiler {
@@ -30,7 +34,8 @@ public class LinkCompiler extends AbstractObjectCompiler implements ObjectCompil
     }
 
     private boolean verifyTargetExists(String target) {
-        //TODO: verify target exists.
-        return false;
+        String targetPath = target.replace("_", File.separator);
+        Path filePath = Paths.get(root).resolve(targetPath);
+        return Files.exists(filePath);
     }
 }

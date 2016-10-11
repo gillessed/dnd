@@ -3,6 +3,8 @@ package com.gillessed.dnd.rest.resources;
 
 import com.gillessed.dnd.page.exception.ParsingException;
 import com.gillessed.dnd.rest.api.request.PageRequest;
+import com.gillessed.dnd.rest.api.response.DndError;
+import com.gillessed.dnd.rest.api.response.ImmutableDndError;
 import com.gillessed.dnd.rest.api.response.ImmutablePageResponse;
 import com.gillessed.dnd.rest.api.response.PageResponse;
 import com.gillessed.dnd.rest.model.page.WikiPage;
@@ -21,6 +23,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.NoSuchFileException;
 
 @Singleton
 @PermitAll
@@ -39,7 +42,7 @@ public class PageResource {
     }
 
     @POST
-    public Response login(PageRequest pageRequest) {
+    public Response search(PageRequest pageRequest) {
         String pagePath = pageRequest.getPage();
         String processPagePath = PAGES_PREFIX + pagePath.replace("_", File.separator);
         try {
@@ -48,7 +51,13 @@ public class PageResource {
                     .page(page)
                     .build();
             return Response.ok(response).build();
-
+        } catch (NoSuchFileException e) {
+            log.warn("Could not find page with path {}", pagePath);
+            DndError error = ImmutableDndError.builder()
+                    .errorType(DndError.Type.WIKI_PAGE_NOT_FOUND)
+                    .errorMessage("Could not find the page you were looking for.")
+                    .build();
+            return Response.ok(error).build();
         } catch (IOException | ParsingException e) {
             log.warn("Error build page: ", e);
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();

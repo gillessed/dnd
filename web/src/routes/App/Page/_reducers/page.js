@@ -1,11 +1,13 @@
 import { combineReducers } from 'redux';
 import Fetcher from '~/src/network/networker';
+import { addErrorNotification } from '~/src/store/globals/notifications';
 
 // ------------------------------------
 // Constants
 // ------------------------------------
 export const FETCHING_PAGE ='FETCHING_PAGE';
 export const PAGE_DATA = 'PAGE_DATA';
+export const SET_SECTION_VISIBLE = 'SET_SECTION_VISIBLE';
 
 // ------------------------------------
 // Actions
@@ -31,15 +33,28 @@ export const setPage = (page) => {
     }
 };
 
+export const setSectionVisible = (section, visible) => {
+    return {
+        type: SET_SECTION_VISIBLE,
+        payload: { section, visible }
+    }
+};
+
 export const fetchPage = (pagePath) => {
     return (dispatch, getState) => {
         dispatch(setFetchingPage());
+        dispatch(setPage(null));
         return Fetcher.sessionFetch('/page', {
             method: 'POST',
             body: JSON.stringify({ page: pagePath })
         }).then((json) => {
-            dispatch(setPage(json.page));
-            dispatch(doneFetchingPage());
+            if (json.errorType == 'WIKI_PAGE_NOT_FOUND') {
+                dispatch(addErrorNotification('Error Loading Page', json.errorMessage));
+                dispatch(doneFetchingPage());
+            } else {
+                dispatch(setPage(json.page));
+                dispatch(doneFetchingPage());
+            }
         }).catch(() => {
             dispatch(doneFetchingPage());
         });
@@ -61,6 +76,14 @@ const PAGE_DATA_ACTION_HANDLERS = {
     }
 };
 
+const SECTION_VISIBILITY_HANDLERS = {
+    [SET_SECTION_VISIBLE]: (state, action) => {
+        let nextState = Object.assign({}, state);
+        nextState[action.payload.section] = action.payload.visible;
+        return nextState;
+    }
+};
+
 // ------------------------------------
 // Reducer
 // ------------------------------------
@@ -76,7 +99,14 @@ const pageData = (state = initialPageDataState, action) => {
     return handler ? handler(state, action) : state;
 };
 
+const initialSectionVisibilityState = {};
+const sectionVisibility = (state = initialSectionVisibilityState, action) => {
+    const handler = SECTION_VISIBILITY_HANDLERS[action.type];
+    return handler ? handler(state, action) : state;
+};
+
 export default combineReducers({
     fetchingPage,
-    pageData
+    pageData,
+    sectionVisibility
 });

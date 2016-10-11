@@ -1,7 +1,58 @@
 <title> Generos <>
-<section ref="introduction"> Introduction <>
-<p>Generos is an area composed of several warring city states. It is in the southern tip of {link to west continent}.<>
-<section ref="history"> History <>
-<p>Generos has existed in various states for around 3000 years. It began with<>
-<section ref="geography"> Geography<>
-<p>Generos is mostly covered in grasslands with scarce coniferous forest.<>
+<section> Introduction <>
+    <p>Generos is an area of grassy plains and hills which currently encompasses several competing city states. It is
+    in the southern area of <a t="places_cariadon">Cariadon<>, bordering the desert of <a t="places_khandayr">Khandayr<>
+    .<>
+<section> History <>
+    <heading level="1"> Fall of Galacia <>
+        <p>The oldest known kingdom in the plains of Generos was the kingdom of Galacia, one of the participants in the
+        Apocalypse of Karthuun. It was a truly spectacular human kingdom that was brought to ruins after the war with
+        the hordes of Kjeldorn.<>
+        <p>In the hundreds of years following the war, the kingdom had struggles keeping up its thriving economy and
+        rich culture due to such a large loss of population and resources. The victory had cost the Galacians the most
+        of any of the allied forces, and the price was great.<>
+        <p>Many cities lay in ruin, and those that were still standing were barely standing and functioning. A shortage
+        in mana production led to a lot of the cities' mana infrastrucures to shut down and become inoperable.<>
+        <p>In an effort to maintain the capital of <a t="Rhea">Rhea<>, the capital eventually isolated itself from the
+        rest of the country and left the rest of the country to decay on its own. Most people outside of Galacia started
+        migrating up to more fertile lands and left Generos, leaving it to be uninhabited except for Rhea for another
+        few hundred years.<>
+    <heading level="1"> Settlers from Kergoon <>
+        <p>As time went on, there was a migration of a mix of people from the jungles of <a t="places_kergoon">Kergoon<>
+        headed towards Generos. They formed many small villages all over Generos. As the towns grew and the settlers
+        started calling Generos their home, three cities emerged as the most influential and powerful. The land was
+        essentially divided into three states.<>
+        <p>Some stuff<>
+    <heading level="1"> City States <>
+        <p>For the last 200 years, the various small city states that have emerged out of the ashes of Galacia have been
+        fighting amongst one another a little, but are for the most part on decent terms.<>
+<section> Geography <>
+    <p>Generos is mostly covered in grasslands with scarce coniferous forest.<>
+
+
+    <heading level="1"> Fall of Galacia <>
+        <p>The oldest known kingdom in the plains of Generos was the kingdom of Galacia, one of the participants in the
+        Apocalypse of Karthuun. It was a truly spectacular human kingdom that was brought to ruins after the war with
+        the hordes of Kjeldorn.<>
+        <p>In the hundreds of years following the war, the kingdom had struggles keeping up its thriving economy and
+        rich culture due to such a large loss of population and resources. The victory had cost the Galacians the most
+        of any of the allied forces, and the price was great.<>
+        <p>Many cities lay in ruin, and those that were still standing were barely standing and functioning. A shortage
+        in mana production led to a lot of the cities' mana infrastrucures to shut down and become inoperable.<>
+        <p>In an effort to maintain the capital of <a t="Rhea">Rhea<>, the capital eventually isolated itself from the
+        rest of the country and left the rest of the country to decay on its own. Most people outside of Galacia started
+        migrating up to more fertile lands and left Generos, leaving it to be uninhabited except for Rhea for another
+        few hundred years.<>
+    <heading level="1"> Fall of Galacia <>
+        <p>The oldest known kingdom in the plains of Generos was the kingdom of Galacia, one of the participants in the
+        Apocalypse of Karthuun. It was a truly spectacular human kingdom that was brought to ruins after the war with
+        the hordes of Kjeldorn.<>
+        <p>In the hundreds of years following the war, the kingdom had struggles keeping up its thriving economy and
+        rich culture due to such a large loss of population and resources. The victory had cost the Galacians the most
+        of any of the allied forces, and the price was great.<>
+        <p>Many cities lay in ruin, and those that were still standing were barely standing and functioning. A shortage
+        in mana production led to a lot of the cities' mana infrastrucures to shut down and become inoperable.<>
+        <p>In an effort to maintain the capital of <a t="Rhea">Rhea<>, the capital eventually isolated itself from the
+        rest of the country and left the rest of the country to decay on its own. Most people outside of Galacia started
+        migrating up to more fertile lands and left Generos, leaving it to be uninhabited except for Rhea for another
+        few hundred years.<>

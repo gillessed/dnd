@@ -8,13 +8,17 @@ import com.gillessed.dnd.page.parser.Element;
 import com.gillessed.dnd.rest.model.page.ImmutableWikiPage;
 import com.gillessed.dnd.rest.model.page.WikiObject;
 import com.gillessed.dnd.rest.model.page.WikiPage;
+import com.gillessed.dnd.rest.model.page.objects.ImmutableWikiSection;
+import com.gillessed.dnd.rest.model.page.objects.ImmutableWikiSectionHeader;
 import com.gillessed.dnd.rest.model.page.objects.WikiHeading;
 import com.gillessed.dnd.rest.model.page.objects.WikiParagraph;
 import com.gillessed.dnd.rest.model.page.objects.WikiSection;
+import com.gillessed.dnd.rest.model.page.objects.WikiSectionHeader;
 import com.gillessed.dnd.rest.model.page.objects.WikiTitle;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +27,7 @@ public class PageCompilerImpl implements PageCompiler {
     private static final List<Class<? extends WikiObject>> ACCEPTABLE_CLASSES = Lists.newArrayList(
             WikiParagraph.class,
             WikiTitle.class,
-            WikiSection.class,
+            WikiSectionHeader.class,
             WikiHeading.class
     );
 
@@ -43,20 +47,46 @@ public class PageCompilerImpl implements PageCompiler {
                 objectCompilerFactory
         );
 
-        String title = getTitle(wikiObjects);
-
-        return ImmutableWikiPage.builder()
-                .addAllWikiObjects(wikiObjects)
-                .title(title)
-                .build();
-    }
-
-    private String getTitle(List<WikiObject> wikiObjects) {
         List<WikiTitle> titleObjects = wikiObjects.stream()
                 .filter((WikiObject object) -> WikiTitle.class.isAssignableFrom(object.getClass()))
                 .map((WikiObject object) -> (WikiTitle) object)
                 .collect(Collectors.toList());
-        Preconditions.checkState(titleObjects.size() == 1, "A page should only have a single title object.");
-        return titleObjects.get(0).getText();
+        Preconditions.checkState(titleObjects.size() == 1,
+                "A page should only have a single title object.");
+        Preconditions.checkState(WikiTitle.class.isAssignableFrom(wikiObjects.get(0).getClass()),
+                "A page's first element should be a title object.");
+        Preconditions.checkState(WikiSectionHeader.class.isAssignableFrom(wikiObjects.get(1).getClass()),
+                "A page's second element should be a section header.");
+
+        wikiObjects.add(ImmutableWikiSectionHeader.builder().text("Blank Dummy").build());
+        WikiTitle titleObject = (WikiTitle) wikiObjects.get(0);
+        String title = titleObject.getText();
+
+        List<WikiSection> wikiSections = new ArrayList<>();
+        WikiSectionHeader sectionHeader = null;
+        List<WikiObject> sectionObjects = new ArrayList<>();
+        for (int i = 1; i < wikiObjects.size(); i++) {
+            WikiObject object = wikiObjects.get(i);
+            if (WikiSectionHeader.class.isAssignableFrom(object.getClass())) {
+                if (sectionHeader != null) {
+                    WikiSection section = ImmutableWikiSection.builder()
+                            .text(sectionHeader.getText())
+                            .wikiObjects(sectionObjects)
+                            .index(wikiSections.size() + 1)
+                            .build();
+                    wikiSections.add(section);
+                    sectionObjects.clear();
+                }
+                sectionHeader = (WikiSectionHeader) object;
+            } else {
+                sectionObjects.add(object);
+            }
+        }
+
+        return ImmutableWikiPage.builder()
+                .title(title)
+                .titleObject(titleObject)
+                .wikiSections(wikiSections)
+                .build();
     }
 }

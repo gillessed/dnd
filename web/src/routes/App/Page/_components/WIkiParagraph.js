@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
+import './WikiParagraph.scss'
 
 export default class extends Component {
 
@@ -22,14 +24,15 @@ export default class extends Component {
     renderWikiObject(wikiObject) {
         if (wikiObject.type === 'link') {
             return (
-                <a style={{color: '#0000ff'}}
-                    key={this.objectNumber++}>
+                <Link to={'/app/page/' + wikiObject.target}
+                      className={'wikiLink' + (wikiObject.isBroken ? ' broken' : '')}
+                      key={this.objectKey++}>
                     {wikiObject.text}
-                </a>
+                </Link>
             );
         } else if (wikiObject.type === 'text') {
             return wikiObject.value;
         }
-        return <p key={this.objectNumber++}>Unidentified Wiki Object: {JSON.stringify(wikiObject)}</p>
+        return <p key={this.objectKey++}>Unidentified Wiki Object: {JSON.stringify(wikiObject)}</p>
     }
 }

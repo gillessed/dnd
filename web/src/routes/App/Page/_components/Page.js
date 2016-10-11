@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import WikiTitle from './WikiTitle'
-import WikiSection from './WikiSection'
-import WikiHeading from './WikiHeading'
-import WikiParagraph from './WIkiParagraph'
+import WikiSection from '../_containers/WikiSection'
+import PageSidebar from '../_containers/PageSidebar'
 import './Page.scss'
 
 export class Page extends Component {
@@ -20,43 +20,46 @@ export class Page extends Component {
         this.objectNumber = 0;
         this.sectionNumber = 1;
         return (
-<div style={{ margin: '0 auto' }}>
-    {this.renderWikiObjects()}
-    {this.renderLoader()}
-</div>
+            <div id='pageContainer'
+                 style={{ margin: '0 auto' }}>
+                {this.renderSidebar()}
+                <div id='pageContent'>
+                    {this.renderWikiTitle()}
+                    {this.renderWikiSections()}
+                    {this.renderLoader()}
+                </div>
+            </div>
         );
     }
 
-    renderWikiObjects() {
+    renderSidebar() {
         if (this.props.pageData) {
-            return this.props.pageData.wikiObjects.map(this.renderWikiObject.bind(this));
+            return <PageSidebar/>
         } else {
             return null;
         }
     }
 
-    renderWikiObject(wikiObject) {
-        if (wikiObject.type === 'title') {
-            return <WikiTitle
-                text={wikiObject.text}
-                key={this.objectNumber++}/>
-        } else if (wikiObject.type == 'section') {
-            return <WikiSection
-                text={wikiObject.text}
-                reference={wikiObject.ref}
-                sectionNumber={this.sectionNumber++}
-                key={this.objectNumber++}/>
-        } else if (wikiObject.type == 'heading') {
-            return <WikiHeading
-                text={wikiObject.text}
-                level={wikiObject.level}
-                key={this.objectNumber++}/>
-        } else if (wikiObject.type == 'paragraph') {
-            return <WikiParagraph
-                wikiObjects={wikiObject.wikiObjects}
-                key={this.objectNumber++}/>
+    renderWikiTitle() {
+        if (this.props.pageData) {
+            return <WikiTitle text={this.props.pageData.titleObject.text}/>
         }
-        return <p key={this.objectNumber++}>Unidentified Wiki Object: {JSON.stringify(wikiObject)}</p>
+    }
+
+    renderWikiSections() {
+        if (this.props.pageData) {
+            return this.props.pageData.wikiSections.map(this.renderWikiSection.bind(this));
+        } else if (!this.props.fetchingPage) {
+            return <p>Click <Link to='/app/wiki'>here</Link> to return to the main wiki page.</p>;
+        }
+    }
+
+    renderWikiSection(wikiSection) {
+        return <WikiSection
+            text={wikiSection.text}
+            wikiObjects={wikiSection.wikiObjects}
+            sectionNumber={this.sectionNumber++}
+            key={this.objectNumber++}/>
     }
 
     renderLoader() {

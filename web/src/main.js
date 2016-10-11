@@ -10,7 +10,10 @@ import { persistStore } from 'redux-persist'
 // ========================================================
 const initialState = window.___INITIAL_STATE__;
 const store = createStore(initialState);
-const persist = persistStore(store, { blacklist: ['notifications'] }, () => {
+const persist = persistStore(store, { blacklist: [
+    'notifications',
+    'sectionVisibility'
+] }, () => {
     Fetcher.store = store;
 
     // ========================================================
