@@ -9,28 +9,56 @@ class Header extends Component {
         super(props);
     }
 
+    componentDidMount() {
+        $('.fixed.menu .container .dropdown.item').dropdown({
+            action: 'hide',
+            onChange: () => {
+                this.showSidebar();
+            }
+        }).dropdown('setting', 'onShow', () => {
+            this.hideSidebar()
+        }).dropdown('setting', 'onHide', () => {
+            this.showSidebar()
+        });
+    }
+
     render() {
         return (
 <div className='ui fixed borderless menu'>
     <div className='ui container'>
-        <IndexLink to={this.props.session ? '/app' : '/'} className='header item'>
-            <img className='logo'
-                 src={HomeIcon}/>
-            Home
-        </IndexLink>
-        <Link to='/app/wiki' className='header item'>
-            Wiki
-        </Link>
-        <Link to='/app/creator' className='header item'>
-            Charater Creator
-        </Link>
+        <div className='ui pointing link dropdown header item'>
+            <i className='content icon'/>
+            <span className='text'>Tabletop</span>
+            <div className='menu'>
+                <IndexLink to={this.props.session ? '/app' : '/'} className='item'>
+                    <i className='home icon'/>
+                    Home
+                </IndexLink>
+                <Link to='/app/wiki' className='item'>
+                    <i className='world icon'/>
+                    Wiki
+                </Link>
+                <Link to='/app/creator' className='item'>
+                    <i className='user icon'/>
+                    Charater Creator
+                </Link>
+            </div>
+        </div>
 
-        <div className='right menu header item'>
+        <div className='right menu item'>
             <SearchBar customId='headerSearchBar'/>
         </div>
     </div>
 </div>
         );
+    }
+
+    hideSidebar() {
+        $('#leftPageRail').css('z-index', '-1');
+    }
+
+    showSidebar() {
+        $('#leftPageRail').css('z-index', '1');
     }
 }
 

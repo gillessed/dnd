@@ -1,6 +1,6 @@
 package com.gillessed.dnd.page.parser;
 
-import com.gillessed.dnd.rest.model.page.objects.WikiText;
+import com.gillessed.dnd.model.page.objects.WikiText;
 
 import java.util.Map;
 

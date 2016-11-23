@@ -1,7 +1,7 @@
 package com.gillessed.dnd;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.gillessed.dnd.rest.services.search.config.IndexerFactory;
+import com.gillessed.dnd.services.search.config.IndexerFactory;
 import io.dropwizard.Configuration;
 
 import javax.validation.Valid;

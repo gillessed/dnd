@@ -1,0 +1,18 @@
+.sectionLink {
+  &.active {
+    cursor: default;
+    color: #0f0f10;
+    font-weight: bold;
+  }
+  &.notActive {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+@media screen and (max-width: 1390px) {
+  #leftPageRail {
+    display: none !important;
+  }
+}

@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import WikiTitle from './WikiTitle'
 import WikiSection from '../_containers/WikiSection'
-import PageSidebar from '../_containers/PageSidebar'
+import WikiPath from './WikiPath'
+import LeftPageSidebar from '../_containers/LeftPageSidebar'
+import RightPageSidebar from '../_containers/RightPageSidebar'
 import './Page.scss'
 
 export class Page extends Component {
@@ -21,9 +23,11 @@ export class Page extends Component {
         this.sectionNumber = 1;
         return (
             <div id='pageContainer'
-                 style={{ margin: '0 auto' }}>
-                {this.renderSidebar()}
+                 style={{ margin: '0 auto'}}>
+                {this.renderLeftSidebar()}
+                {this.renderRightSidebar()}
                 <div id='pageContent'>
+                    {this.renderWikiPath()}
                     {this.renderWikiTitle()}
                     {this.renderWikiSections()}
                     {this.renderLoader()}
@@ -32,9 +36,25 @@ export class Page extends Component {
         );
     }
 
-    renderSidebar() {
+    renderWikiPath() {
+        if (this.props.pagePath) {
+            return <WikiPath path={this.props.pagePath}/>
+        } else {
+            return null;
+        }
+    }
+
+    renderLeftSidebar() {
         if (this.props.pageData) {
-            return <PageSidebar/>
+            return <LeftPageSidebar/>
+        } else {
+            return null;
+        }
+    }
+
+    renderRightSidebar() {
+        if (this.props.pageData) {
+            return <RightPageSidebar/>
         } else {
             return null;
         }

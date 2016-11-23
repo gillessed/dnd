@@ -25,9 +25,9 @@ class Wiki extends Component {
         <div className='column'>
             <h2><i className='world icon'/>Places</h2>
             <div className='ui link list'>
-                <Link to='/app/page/karyus' className='item'>Karyus</Link>
-                <Link to='/app/page/places_generos' className='item'>Generos</Link>
-                <Link to='/app/page/places_ippanunga' className='item'>Ippanunga</Link>
+                <Link to='/app/page/places' className='item'>Karyus</Link>
+                <Link to='/app/page/places_generos_elfora' className='item'>Elfora</Link>
+                <Link to='/app/page/places_generos_ippanunga' className='item'>Ippanunga</Link>
             </div>
         </div>
         <div className='column'>

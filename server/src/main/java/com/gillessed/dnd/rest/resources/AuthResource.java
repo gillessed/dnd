@@ -1,10 +1,11 @@
 package com.gillessed.dnd.rest.resources;
 
 
+import com.gillessed.dnd.model.auth.Session;
 import com.gillessed.dnd.rest.api.request.LoginRequest;
 import com.gillessed.dnd.rest.api.response.ImmutableLoginResponse;
-import com.gillessed.dnd.rest.model.auth.Session;
-import com.gillessed.dnd.rest.services.AuthService;
+import com.gillessed.dnd.rest.error.DndError;
+import com.gillessed.dnd.services.AuthService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
@@ -37,6 +38,6 @@ public class AuthResource {
                     .userId(session.get().getUser().getUserId())
                     .build()).build();
         }
-        return Response.status(Response.Status.UNAUTHORIZED).build();
+        return Response.status(Response.Status.UNAUTHORIZED).entity(DndError.Type.LOGIN_FAILED.error()).build();
     }
 }

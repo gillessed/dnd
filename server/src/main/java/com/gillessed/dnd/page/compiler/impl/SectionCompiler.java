@@ -1,11 +1,11 @@
 package com.gillessed.dnd.page.compiler.impl;
 
+import com.gillessed.dnd.model.page.WikiObject;
+import com.gillessed.dnd.model.page.objects.ImmutableWikiSectionHeader;
 import com.gillessed.dnd.page.compiler.AbstractObjectCompiler;
 import com.gillessed.dnd.page.compiler.ObjectCompiler;
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.parser.Element;
-import com.gillessed.dnd.rest.model.page.WikiObject;
-import com.gillessed.dnd.rest.model.page.objects.ImmutableWikiSectionHeader;
 
 import java.util.List;
 

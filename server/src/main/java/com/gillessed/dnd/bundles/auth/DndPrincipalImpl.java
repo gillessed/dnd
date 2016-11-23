@@ -1,6 +1,6 @@
 package com.gillessed.dnd.bundles.auth;
 
-import com.gillessed.dnd.rest.model.auth.Session;
+import com.gillessed.dnd.model.auth.Session;
 
 /**
  * Created by gcole on 8/16/16.

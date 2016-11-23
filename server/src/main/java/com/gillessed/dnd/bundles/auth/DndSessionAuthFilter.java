@@ -1,6 +1,7 @@
 package com.gillessed.dnd.bundles.auth;
 
 
+import com.gillessed.dnd.rest.error.DndError;
 import io.dropwizard.auth.AuthFilter;
 import io.dropwizard.auth.UnauthorizedHandler;
 
@@ -44,7 +45,7 @@ public class DndSessionAuthFilter<P extends Principal> extends AuthFilter<DndBea
         public Response buildResponse(String prefix, String realm) {
             return Response
                     .status(Response.Status.UNAUTHORIZED)
-                    .entity("You have an invalid authentication key")
+                    .entity(DndError.Type.INVALID_SESSION.error())
                     .build();
         }
     }

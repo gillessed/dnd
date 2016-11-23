@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import WikiHeading from './WikiHeading'
 import WikiParagraph from './WIkiParagraph'
+import WikiUnorederedList from './WIkiUnorderedList'
 
 export default class extends Component {
 
@@ -42,6 +43,10 @@ export default class extends Component {
             return <WikiHeading
                 text={wikiObject.text}
                 level={wikiObject.level}
+                key={this.objectKey++}/>
+        } else if (wikiObject.type == 'unorderedList') {
+            return <WikiUnorederedList
+                wikiObjects={wikiObject.listItems}
                 key={this.objectKey++}/>
         } else if (wikiObject.type == 'paragraph') {
             return <WikiParagraph

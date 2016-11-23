@@ -4,7 +4,7 @@ import com.gillessed.dnd.rest.api.request.SearchRequest;
 import com.gillessed.dnd.rest.api.response.search.ImmutableSearchResponse;
 import com.gillessed.dnd.rest.api.response.search.SearchResponse;
 import com.gillessed.dnd.rest.api.response.search.SearchResult;
-import com.gillessed.dnd.rest.services.search.SearchService;
+import com.gillessed.dnd.services.search.SearchService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import org.slf4j.Logger;

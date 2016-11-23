@@ -1,0 +1,32 @@
+.directoryItemContent {
+  &.active {
+    cursor: default;
+    .contentHeader {
+      color: #000000;
+    }
+  }
+  &.notActive {
+  }
+}
+
+.directoryItemContent .description {
+  padding-left: 10px;
+}
+
+.directoryItemContent.notActive {
+  padding-left: 15px;
+}
+
+@media screen and (max-width: 1390px) {
+  #rightPageRail {
+    display: none !important;
+  }
+}
+
+#rightPageRail {
+  z-index: 1;
+  .segment {
+    max-height: 500px;
+    overflow-y: scroll;
+  }
+}

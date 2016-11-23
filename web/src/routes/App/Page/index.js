@@ -1,5 +1,5 @@
 import { injectReducer } from '~/src/store/reducers'
-import { fetchPage } from './_reducers/page'
+import { fetchPage, fetchDirectoryContents } from './_reducers/page'
 
 export default (store) => ({
     path: 'page/:name',

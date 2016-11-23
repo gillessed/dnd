@@ -2,7 +2,7 @@ package com.gillessed.dnd.bundles.guice;
 
 import com.gillessed.dnd.bundles.auth.DndPrincipal;
 import com.gillessed.dnd.bundles.auth.RequestPrincipalFilter;
-import com.gillessed.dnd.rest.model.auth.Session;
+import com.gillessed.dnd.model.auth.Session;
 import com.google.common.base.Preconditions;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;

@@ -1,11 +1,11 @@
 package com.gillessed.dnd.page.compiler.impl;
 
+import com.gillessed.dnd.model.page.WikiObject;
+import com.gillessed.dnd.model.page.objects.ImmutableWikiLink;
 import com.gillessed.dnd.page.compiler.AbstractObjectCompiler;
 import com.gillessed.dnd.page.compiler.ObjectCompiler;
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.parser.Element;
-import com.gillessed.dnd.rest.model.page.WikiObject;
-import com.gillessed.dnd.rest.model.page.objects.ImmutableWikiLink;
 
 import java.io.File;
 import java.nio.file.Files;
@@ -36,6 +36,10 @@ public class LinkCompiler extends AbstractObjectCompiler implements ObjectCompil
     private boolean verifyTargetExists(String target) {
         String targetPath = target.replace("_", File.separator);
         Path filePath = Paths.get(root).resolve(targetPath);
-        return Files.exists(filePath);
+        if (Files.isDirectory(filePath)) {
+            return Files.exists(filePath.resolve("index"));
+        } else {
+            return Files.exists(filePath);
+        }
     }
 }

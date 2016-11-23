@@ -16,7 +16,7 @@ class CoreLayout extends Component {
         return (
 <div id='fullPage'>
     <Header/>
-    <div className='ui main text container bound bottom'>
+    <div className='ui main text very relaxed container bound bottom'>
         <Notifications/>
         {this.props.children}
     </div>

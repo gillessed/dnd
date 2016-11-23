@@ -48,13 +48,9 @@ export const fetchPage = (pagePath) => {
             method: 'POST',
             body: JSON.stringify({ page: pagePath })
         }).then((json) => {
-            if (json.errorType == 'WIKI_PAGE_NOT_FOUND') {
-                dispatch(addErrorNotification('Error Loading Page', json.errorMessage));
-                dispatch(doneFetchingPage());
-            } else {
-                dispatch(setPage(json.page));
-                dispatch(doneFetchingPage());
-            }
+            json.path = pagePath;
+            dispatch(setPage(json));
+            dispatch(doneFetchingPage());
         }).catch(() => {
             dispatch(doneFetchingPage());
         });

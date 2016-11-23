@@ -9,5 +9,6 @@ import org.immutables.value.Value;
 @JsonDeserialize(as = ImmutableSearchResult.class)
 public interface SearchResult {
     String getTitle();
+    String getDescription();
     String getTarget();
 }

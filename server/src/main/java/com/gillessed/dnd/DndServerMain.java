@@ -7,7 +7,8 @@ import com.gillessed.dnd.bundles.guice.DndAuthModule;
 import com.gillessed.dnd.bundles.guice.DndPageModule;
 import com.gillessed.dnd.bundles.guice.DndResourcesModule;
 import com.gillessed.dnd.bundles.guice.DndServicesModule;
-import com.gillessed.dnd.rest.services.search.index.Indexer;
+import com.gillessed.dnd.rest.error.DndRuntimeExceptionMapper;
+import com.gillessed.dnd.services.search.index.Indexer;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
 import com.hubspot.dropwizard.guice.GuiceBundle;
@@ -69,6 +70,7 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
 
     @Override
     public void run(DndConfiguration configuration, Environment environment) throws Exception {
+        environment.jersey().register(new DndRuntimeExceptionMapper());
         enableCors(environment);
         //Shitty, but starts the indexer by calling the injector to actually perform injection.
         Indexer indexer = guiceBundleInjector.getProvider(Indexer.class).get();

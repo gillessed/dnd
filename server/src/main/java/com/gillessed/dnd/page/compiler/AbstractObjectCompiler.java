@@ -1,8 +1,9 @@
 package com.gillessed.dnd.page.compiler;
 
+import com.gillessed.dnd.model.page.WikiObject;
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.parser.Element;
-import com.gillessed.dnd.rest.model.page.objects.WikiText;
+import com.gillessed.dnd.model.page.objects.WikiText;
 
 import java.util.List;
 
@@ -61,5 +62,20 @@ public abstract class AbstractObjectCompiler implements ObjectCompiler {
 
     protected List<List<Element>> getSubElements(List<Element> elements) throws CompilerException{
         return SubElementFinder.findSubElements(elements);
+    }
+
+    protected List<WikiObject> parseAllSubElements(
+            List<Element> elements,
+            List<Class<? extends WikiObject>> acceptableClasses,
+            ObjectCompilerFactory objectCompilerFactory) throws CompilerException {
+        checkElementsNotEmpty(elements);
+        checkAttributesEmpty(elements);
+        List<List<Element>> subElements = SubElementFinder.findSubElements(elements.subList(1, elements.size() - 1));
+        return PageCompiler.parseSubElements(
+                elements,
+                subElements,
+                acceptableClasses,
+                objectCompilerFactory
+        );
     }
 }

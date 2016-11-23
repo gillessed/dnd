@@ -1,20 +1,21 @@
 package com.gillessed.dnd.page.compiler.impl;
 
+import com.gillessed.dnd.model.page.ImmutableWikiPage;
+import com.gillessed.dnd.model.page.WikiObject;
+import com.gillessed.dnd.model.page.WikiPage;
+import com.gillessed.dnd.model.page.objects.ImmutableWikiSection;
+import com.gillessed.dnd.model.page.objects.ImmutableWikiSectionHeader;
+import com.gillessed.dnd.model.page.objects.WikiHeading;
+import com.gillessed.dnd.model.page.objects.WikiParagraph;
+import com.gillessed.dnd.model.page.objects.WikiSection;
+import com.gillessed.dnd.model.page.objects.WikiSectionHeader;
+import com.gillessed.dnd.model.page.objects.WikiTitle;
+import com.gillessed.dnd.model.page.objects.WikiUnorderedList;
 import com.gillessed.dnd.page.compiler.ObjectCompilerFactory;
 import com.gillessed.dnd.page.compiler.PageCompiler;
 import com.gillessed.dnd.page.compiler.SubElementFinder;
 import com.gillessed.dnd.page.exception.ParsingException;
 import com.gillessed.dnd.page.parser.Element;
-import com.gillessed.dnd.rest.model.page.ImmutableWikiPage;
-import com.gillessed.dnd.rest.model.page.WikiObject;
-import com.gillessed.dnd.rest.model.page.WikiPage;
-import com.gillessed.dnd.rest.model.page.objects.ImmutableWikiSection;
-import com.gillessed.dnd.rest.model.page.objects.ImmutableWikiSectionHeader;
-import com.gillessed.dnd.rest.model.page.objects.WikiHeading;
-import com.gillessed.dnd.rest.model.page.objects.WikiParagraph;
-import com.gillessed.dnd.rest.model.page.objects.WikiSection;
-import com.gillessed.dnd.rest.model.page.objects.WikiSectionHeader;
-import com.gillessed.dnd.rest.model.page.objects.WikiTitle;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
@@ -28,7 +29,8 @@ public class PageCompilerImpl implements PageCompiler {
             WikiParagraph.class,
             WikiTitle.class,
             WikiSectionHeader.class,
-            WikiHeading.class
+            WikiHeading.class,
+            WikiUnorderedList.class
     );
 
     private final ObjectCompilerFactory objectCompilerFactory;
@@ -85,6 +87,7 @@ public class PageCompilerImpl implements PageCompiler {
 
         return ImmutableWikiPage.builder()
                 .title(title)
+                .description(titleObject.getDescription())
                 .titleObject(titleObject)
                 .wikiSections(wikiSections)
                 .build();

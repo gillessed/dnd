@@ -1,5 +1,6 @@
 .DS_STORE
 *.log
+*.log.gz
 
 node_modules
 
