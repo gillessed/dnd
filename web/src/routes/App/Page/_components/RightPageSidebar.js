@@ -39,15 +39,25 @@ class RightPageSidebar extends React.Component {
     }
 
     renderDirectoryLink(directory) {
-        return (
-            <div key={this.objectKey++} className='item'>
-                <Link to={'/app/page/' + directory.path} className='directoryLink'>
-                    <div className={'content directoryItemContent' + (this.props.pagePath == directory.path ? ' active' : ' notActive')}>
+        if (this.props.pagePath == directory.path) {
+            return (
+                <div key={this.objectKey++} className='item'>
+                    <i className='ui angle left icon'/>
+                    <div className='content directoryItemContent active'>
                         <div className='contentHeader'>{directory.title}</div>
                     </div>
-                </Link>
-            </div>
-        );
+                </div>
+            );
+        } else {
+            return (
+                <div key={this.objectKey++} className='item notActive'>
+                    <i className='ui angle right icon'/>
+                    <Link to={'/app/page/' + directory.path} className='content directoryItemContent notActive'>
+                        <div className='contentHeader'>{directory.title}</div>
+                    </Link>
+                </div>
+            );
+        }
     }
 }
 

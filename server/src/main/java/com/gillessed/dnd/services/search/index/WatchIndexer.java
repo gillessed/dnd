@@ -3,7 +3,7 @@ package com.gillessed.dnd.services.search.index;
 import com.gillessed.dnd.model.page.WikiPage;
 import com.gillessed.dnd.model.page.objects.WikiTitle;
 import com.gillessed.dnd.page.exception.ParsingException;
-import com.gillessed.dnd.services.PageService;
+import com.gillessed.dnd.services.page.PageService;
 import com.google.common.base.Preconditions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -125,7 +125,7 @@ public class WatchIndexer implements Indexer, Runnable {
         if (!deleted) {
             WikiPage page;
             try {
-                page = pageService.getPage(pageFile);
+                page = pageService.getPage(pageFile, false, false);
             } catch (ParsingException e) {
                 log.error("Could not parse page {}. Skipping index...", e);
                 return;

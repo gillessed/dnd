@@ -4,6 +4,6 @@ export default (store) => ({
         require.ensure([], (require) => {
             const Wiki = require('./_containers/WikiContainer').default;
             cb(null, Wiki);
-        }, 'wiki')
+        })
     }
 });

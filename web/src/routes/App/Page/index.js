@@ -5,13 +5,11 @@ export default (store) => ({
     path: 'page/:name',
     getComponent (nextState, cb) {
         require.ensure([], (require) => {
-            const Page = require('./_containers/PageContainer').default
+            const Page = require('./_containers/PageContainer').default;
             const reducer = require('./_reducers/page').default;
             injectReducer(store, {key: 'page', reducer});
+            store.dispatch(fetchPage(nextState.params.name));
             cb(null, Page);
-        }, 'page/:name')
-    },
-    onEnter: (nextState) => {
-        store.dispatch(fetchPage(nextState.params.name));
+        })
     }
 });

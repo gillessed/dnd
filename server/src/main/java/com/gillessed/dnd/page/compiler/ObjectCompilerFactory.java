@@ -14,6 +14,7 @@ import com.gillessed.dnd.page.compiler.impl.TextCompiler;
 import com.gillessed.dnd.page.compiler.impl.TitleCompiler;
 import com.gillessed.dnd.page.compiler.impl.UnorderedListObjectCompiler;
 import com.gillessed.dnd.page.parser.Element;
+import com.gillessed.dnd.services.page.PageService;
 import com.google.common.collect.ImmutableMap;
 
 import java.util.Map;
@@ -26,14 +27,14 @@ public class ObjectCompilerFactory {
 
     private final Map<String, ObjectCompiler> compilers;
 
-    public ObjectCompilerFactory(String root) {
+    public ObjectCompilerFactory(PageService pageService, String root) {
         this.compilers = ImmutableMap.<String, ObjectCompiler>builder()
                 .put(WikiText.type, new TextCompiler())
                 .put(WikiTitle.type, new TitleCompiler())
                 .put(WikiSection.type, new SectionCompiler())
                 .put(WikiHeading.type, new HeadingCompiler())
                 .put(PARAGRAPH_SHORTHAND, new ParagraphCompiler(this))
-                .put(LINK_SHORTHAND, new LinkCompiler(root))
+                .put(LINK_SHORTHAND, new LinkCompiler(pageService, root))
                 .put(UNORDERED_LIST_SHORTHAND, new UnorderedListObjectCompiler(this))
                 .put(LIST_ITEM_SHORTHAND, new ListItemObjectCompiler(this))
                 .build();

@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import WikiTitle from './WikiTitle'
 import WikiSection from '../_containers/WikiSection'
-import WikiPath from './WikiPath'
+import WikiPath from '../_containers/WikiPathContainer'
 import LeftPageSidebar from '../_containers/LeftPageSidebar'
 import RightPageSidebar from '../_containers/RightPageSidebar'
 import './Page.scss'
 
 export class Page extends Component {
     static propTypes = {
-        fetchingPage: React.PropTypes.bool.isRequired
+        fetchingPage: React.PropTypes.bool.isRequired,
+        pageData: React.PropTypes.object
     };
 
     constructor(props) {
@@ -38,7 +39,7 @@ export class Page extends Component {
 
     renderWikiPath() {
         if (this.props.pagePath) {
-            return <WikiPath path={this.props.pagePath}/>
+            return <WikiPath/>
         } else {
             return null;
         }

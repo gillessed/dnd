@@ -5,7 +5,7 @@ import com.gillessed.dnd.model.auth.Session;
 import com.gillessed.dnd.rest.api.request.LoginRequest;
 import com.gillessed.dnd.rest.api.response.ImmutableLoginResponse;
 import com.gillessed.dnd.rest.error.DndError;
-import com.gillessed.dnd.services.AuthService;
+import com.gillessed.dnd.services.auth.AuthService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

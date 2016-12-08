@@ -11,15 +11,21 @@ import com.gillessed.dnd.model.page.objects.WikiSection;
 import com.gillessed.dnd.model.page.objects.WikiSectionHeader;
 import com.gillessed.dnd.model.page.objects.WikiTitle;
 import com.gillessed.dnd.model.page.objects.WikiUnorderedList;
+import com.gillessed.dnd.page.compiler.ObjectCompiler;
 import com.gillessed.dnd.page.compiler.ObjectCompilerFactory;
 import com.gillessed.dnd.page.compiler.PageCompiler;
 import com.gillessed.dnd.page.compiler.SubElementFinder;
 import com.gillessed.dnd.page.exception.ParsingException;
 import com.gillessed.dnd.page.parser.Element;
+import com.gillessed.dnd.services.page.PageService;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 
+import java.io.File;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -34,13 +40,15 @@ public class PageCompilerImpl implements PageCompiler {
     );
 
     private final ObjectCompilerFactory objectCompilerFactory;
+    private final Path pagesDir;
 
-    public PageCompilerImpl(String root) {
-        this.objectCompilerFactory = new ObjectCompilerFactory(root);
+    public PageCompilerImpl(PageService pageService, String root) {
+        this.objectCompilerFactory = new ObjectCompilerFactory(pageService, root);
+        pagesDir = Paths.get(root).toAbsolutePath().normalize();
     }
 
     @Override
-    public WikiPage compilePage(List<Element> elements) throws ParsingException {
+    public WikiPage compilePage(List<Element> elements, Path path) throws ParsingException {
         List<List<Element>> subElements = SubElementFinder.findSubElements(elements);
         List<WikiObject> wikiObjects = PageCompiler.parseSubElements(
                 elements,
@@ -49,20 +57,11 @@ public class PageCompilerImpl implements PageCompiler {
                 objectCompilerFactory
         );
 
-        List<WikiTitle> titleObjects = wikiObjects.stream()
-                .filter((WikiObject object) -> WikiTitle.class.isAssignableFrom(object.getClass()))
-                .map((WikiObject object) -> (WikiTitle) object)
-                .collect(Collectors.toList());
-        Preconditions.checkState(titleObjects.size() == 1,
-                "A page should only have a single title object.");
-        Preconditions.checkState(WikiTitle.class.isAssignableFrom(wikiObjects.get(0).getClass()),
-                "A page's first element should be a title object.");
-        Preconditions.checkState(WikiSectionHeader.class.isAssignableFrom(wikiObjects.get(1).getClass()),
-                "A page's second element should be a section header.");
-
-        wikiObjects.add(ImmutableWikiSectionHeader.builder().text("Blank Dummy").build());
-        WikiTitle titleObject = (WikiTitle) wikiObjects.get(0);
+        WikiTitle titleObject = getTitleObjects(wikiObjects);
         String title = titleObject.getText();
+
+        // Placeholder section to make sure the loop exits correctly.
+        wikiObjects.add(ImmutableWikiSectionHeader.builder().text("Blank Dummy").build());
 
         List<WikiSection> wikiSections = new ArrayList<>();
         WikiSectionHeader sectionHeader = null;
@@ -90,6 +89,41 @@ public class PageCompilerImpl implements PageCompiler {
                 .description(titleObject.getDescription())
                 .titleObject(titleObject)
                 .wikiSections(wikiSections)
+                .target(getTarget(path))
                 .build();
+    }
+
+    @Override
+    public WikiPage compileTitle(List<Element> elements, Path path) throws ParsingException {
+        List<List<Element>> subElements = SubElementFinder.findSubElements(elements);
+        ObjectCompiler compiler = objectCompilerFactory.getObjectCompilerForObjectType(subElements.get(0).get(0));
+        WikiTitle titleObject = (WikiTitle) compiler.compileObject(subElements.get(0));
+        String title = titleObject.getText();
+
+        return ImmutableWikiPage.builder()
+                .title(title)
+                .description(titleObject.getDescription())
+                .titleObject(titleObject)
+                .wikiSections(Collections.emptyList())
+                .target(getTarget(path))
+                .build();
+    }
+
+    private WikiTitle getTitleObjects(List<WikiObject> wikiObjects) {
+        List<WikiTitle> titleObjects = wikiObjects.stream()
+                .filter((WikiObject object) -> WikiTitle.class.isAssignableFrom(object.getClass()))
+                .map((WikiObject object) -> (WikiTitle) object)
+                .collect(Collectors.toList());
+        Preconditions.checkState(titleObjects.size() == 1,
+                "A page should only have a single title object.");
+        Preconditions.checkState(WikiTitle.class.isAssignableFrom(wikiObjects.get(0).getClass()),
+                "A page's first element should be a title object.");
+        Preconditions.checkState(WikiSectionHeader.class.isAssignableFrom(wikiObjects.get(1).getClass()),
+                "A page's second element should be a section header.");
+        return titleObjects.get(0);
+    }
+
+    private String getTarget(Path path) {
+        return pagesDir.relativize(path.toAbsolutePath().normalize()).toString().replace(File.separator, "_");
     }
 }

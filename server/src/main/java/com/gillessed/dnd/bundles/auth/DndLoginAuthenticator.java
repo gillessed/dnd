@@ -1,7 +1,7 @@
 package com.gillessed.dnd.bundles.auth;
 
 import com.gillessed.dnd.model.auth.Session;
-import com.gillessed.dnd.services.AuthService;
+import com.gillessed.dnd.services.auth.AuthService;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 import io.dropwizard.auth.basic.BasicCredentials;

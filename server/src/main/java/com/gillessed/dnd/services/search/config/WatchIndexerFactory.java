@@ -1,7 +1,7 @@
 package com.gillessed.dnd.services.search.config;
 
 import com.fasterxml.jackson.annotation.JsonTypeName;
-import com.gillessed.dnd.services.PageService;
+import com.gillessed.dnd.services.page.PageService;
 import com.gillessed.dnd.services.search.index.Indexer;
 import com.gillessed.dnd.services.search.index.WatchIndexer;
 

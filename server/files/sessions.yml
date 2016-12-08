@@ -1,0 +1,6 @@
+---
+- token: "6d16e2a716e146d3a01ca62483eaec42bd322d190dfe4e468ff305b6f54745ef"
+  user:
+    userId: "1000"
+    username: "admin"
+    password: "palantir"

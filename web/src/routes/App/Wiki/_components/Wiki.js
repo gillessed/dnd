@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { IndexLink, Link } from 'react-router'
-import Fetcher from '~/src/network/networker'
 import { browserHistory } from 'react-router';
 import SearchBar from '~/src/components/SearchBar';
 

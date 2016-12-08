@@ -31,9 +31,6 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.EnumSet;
 
-/**
- * Created by gcole on 4/16/16.
- */
 public class DndServerMain extends Application<DndConfiguration> implements LifeCycle.Listener {
     private final Logger log = LoggerFactory.getLogger(DndServerMain.class);
     private final Logger indexLogger = LoggerFactory.getLogger(Indexer.class);

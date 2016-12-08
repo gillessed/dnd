@@ -6,11 +6,13 @@ import com.gillessed.dnd.page.parser.Element;
 import com.gillessed.dnd.model.page.WikiObject;
 import com.gillessed.dnd.model.page.WikiPage;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 public interface PageCompiler {
-    WikiPage compilePage(List<Element> elements) throws ParsingException;
+    WikiPage compilePage(List<Element> elements, Path path) throws ParsingException;
+    WikiPage compileTitle(List<Element> elements, Path path) throws ParsingException;
 
     static List<WikiObject> parseSubElements(
             List<Element> elements,

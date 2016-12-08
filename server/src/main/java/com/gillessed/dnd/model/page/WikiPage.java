@@ -14,5 +14,6 @@ public interface WikiPage {
     String getTitle();
     WikiTitle getTitleObject();
     String getDescription();
+    String getTarget();
     List<WikiSection> getWikiSections();
 }

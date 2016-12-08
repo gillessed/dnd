@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 export default class extends Component {
 
     static propTypes = {
-        path: React.PropTypes.string.isRequired
+        path: React.PropTypes.string,
+        parentPaths: React.PropTypes.array,
+        pageData: React.PropTypes.object
     };
 
     constructor(props) {
@@ -11,9 +14,11 @@ export default class extends Component {
     }
 
     render() {
-        var sections = this.props.path.split('_');
-        var link = '';
-        var sectionObjects = [];
+        this.objectKey = 0;
+        let sections = this.props.path.split('_');
+        let link = '';
+        let sectionObjects = [];
+        let parentPathIndex = 0;
         sections.forEach((section, index) => {
             if (link == '') {
                 link = link + section;
@@ -21,34 +26,37 @@ export default class extends Component {
                 link = link + '_' + section;
             }
             if (index < sections.length - 1) {
-                sectionObjects.push({
-                    section,
-                    link
-                });
+                sectionObjects.push(this.props.parentPaths[parentPathIndex++]);
                 sectionObjects.push('divider');
             } else {
                 sectionObjects.push({
-                    section,
-                    link,
-                    active: true
+                    active: true,
+                    title: this.props.pageData.title
                 })
             }
         });
         return (
             <div className='ui breadcrumb'>
-                {sectionObjects.map(this.renderSection)}
+                {sectionObjects.map(this.renderSection.bind(this))}
             </div>
         );
     }
 
     renderSection(section) {
         if (section == 'divider') {
-            return <i className='right angle icon divider'/>;
+            return <i key={this.objectKey++} className='right angle icon divider'/>;
         } else if (section.active) {
-            return <div className='active section'>{section.section}</div>;
+            return <div key={this.objectKey++} className='active section'>{section.title}</div>;
         } else {
-            return <a className='section'>{section.section}</a>;
+            console.log(section);
+
+            return (
+                <Link key={this.objectKey++}
+                         to={'/app/page/' + section.path}
+                         className='directoryLink'>
+                    {section.title}
+                </Link>
+            );
         }
     }
-
 }

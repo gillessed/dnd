@@ -2,19 +2,19 @@
   &.active {
     cursor: default;
     .contentHeader {
+      font-weight: bold;
       color: #000000;
     }
   }
-  &.notActive {
+  &.notActive:hover {
+    .contentHeader {
+      text-decoration: underline;
+    }
   }
 }
 
 .directoryItemContent .description {
   padding-left: 10px;
-}
-
-.directoryItemContent.notActive {
-  padding-left: 15px;
 }
 
 @media screen and (max-width: 1390px) {

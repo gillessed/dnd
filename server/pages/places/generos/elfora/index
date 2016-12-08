@@ -1,25 +1,43 @@
 <title desc="Country in West Generos"> Elfora <>
 <section> Introduction <>
-    <p>Elfora is a country in the west of <a t="places_generos">Generos<>. It was one of the three countries to be born out
+    <p>Elfora is a country in the west of <a t="places_generos">Generos<>. It was one of the five countries to be born out
     of the ashes of Galacia and the settlers from <a t="places_generos_kergoon">Kergoon<>.<>
 <section> History <>
-    <p>Elfora arose out of the ashes of the Galacian empire. Greenbriar, Kenkenot and Menderon, three of the large city
-    states formed by settlers from Kergoon eventually banded together and declared that together, with the small towns
-    and villages, formed the nation of Elfora in 349 AK. Many think that this was a move to counter the militaristic
-    build-up of the central city states. The formation of Tamaret and Caligna posed somewhat of a threat to the nation
-    so they banded together as well.<>
-    <p>Everyone mutually agreed the capital should be <a t="places_generos_elfora_greenbriar">Greenbriar<>. As the largest
-    and most central city, it was the ideal town to establish the government<>
-    <p>Elfora has been a peaceful nation since its inception, and have been fairly non-aggressive, mostly concerned
-    about protecting their own borders. Elfora chose not to interfere in the common skirmishes between the other
-    nations, and as a result, become quite prosperous.<>
-    <p>When the nation of <a t="places_generos_dirchen">Dirchen<> was founded, the Cirrans were wary of the humans
-    to the south, but managed to find common ground with the Elforans. It took some time and negotiation, but the
-    two nations brokered a peace treaty that can even be described as a loose alliance. They are quite welcoming to
-    visitors, and trade between each other a lot. There have even been, on limited occasions, military cooperation.<>
+    <heading level="1"> City States <>
+        <p>Elfora arose out of the ashes of the Galacian empire. <a t="elfora_greenbriar">#<>
+        and <a t="elfora_menderon">#<>, two of the large city states formed by settlers
+        from Kergoon eventually banded together and declared that together, with the small towns
+        and villages, formed the nation of Elfora in 349 AK. Many think that this was a move to counter the militaristic
+        build-up of the central city states. The formation of Tamaret and Caligna posed a signicant threat to the city states
+        along the western seaboard, so banding together was the only viable option.<>
+        <p>Greenbriar and Menderon held negotiations over the span of a few months, and the actual declaration
+        of nationhood was made very quickly. The need for some sort of defensive assurance was pressuring the government
+        to get this done as soon as possible.<>
+        <p>All the states agreed the capital should be <a t="places_generos_elfora_greenbriar">Greenbriar<>. As the largest
+        and most central city, it was the ideal town to establish the government. <a t="places_generos_elfora_greenbriar">Greenbriar<>
+        has remained Elfora's most influential and powerful city since the establishment of the nation.<>
+    <heading level="1"> Uneasy Peace <>
+        <p>The Elforans are a very peaceful people and have never wished to engage in war. Elfora spent many years negotiating
+        its way out of wars with <a t="places_generos_tamaret">Tamaret<> and <a t="places_generos_caligna">Caligna<>.<>
+        <p>However, while Elfora is generally peaceful in its actions, it stands ready to defend itself. The government
+        spent significant amounts of time trying to shore up defenses and train the military to be ready in case of
+        an emergency.<>
+        <p>Over the years, there were a few skirmishes with <a t="#generos_tamaret">#<> and <a t="generos_caligna">#<>,
+        but they were usually too busy fighting amongst themselves to care about Elfora. They also knew that if they attacked
+        Elfora alone, the other would take advantage of this weakness, and finish off the other country.<>
+    <heading level="1"> Alliance with Dirchen <>
+        <p>When the nation of <a t="places_generos_dirchen">Dirchen<> was founded, the Cirrans were wary of the humans
+        to the south, but managed to find common ground with the Elforans. The Cirrans felt similarily to the Elforans in
+        terms of being non-confrontational, and the Elforans used this to garner the trust of the Cirrans. It took some time and
+        negotiation, but the two nations brokered a peace treaty that can even be described as a loose alliance.
+        The Cirrans became quite welcoming to visitors, and the two countries started trading with each other a lot.<>
+
+        <p>There have even been, on limited occasions, military cooperation, especially when it comes to holding back the
+        creatures in the <a t="#generos_blight">#<>. Every nation in Generos fears <a t="generos_theBlight">#<>
+        and has been one of the uniting factors the few times all the nations have worked together, and Elfora and Dirchen
+        are no exception.<>
 <section> Geography <>
-    <p>Elfora borders <a t="places_generos_dirchen">Dirchen<> to the north, and
-    <a t="places_generos_caligna">Caligna<> to the east.<>
+    <p>Elfora borders <a t="places_generos_dirchen">Dirchen<> to the north, and <a t="#generos_caligna">#<> to the east.<>
     <heading level="1"> Climate <>
         <p>Elfora is temperate and the temperatures are kept a little stable by Elfora's proximity to the
         <a t="places_sysifal">Sysifal Ocean<>. There is a moderate amount of rainfall in the fall and spring, and they
@@ -28,7 +46,7 @@
     <heading level="1"> Flora <>
         <p>Elfora, like all the other nations on the plains, are mostly covered in grass. It is fairly dry grass, and can
         be between a few centimetres all the way to two metres tall.<>
-        <p>Occasional forests dot the plains, and are a source of economic benefit. Most of the trees are deciduduous,
+        <p>Occasional forests dot the plains, and are a source of economic benefit. Most of the trees are deciduous,
         and grow quite tall, but fairly far apart.<>
         <p>The soil of Elfora is reasonably arable, and can support a wide variety of crops.<>
     <heading level="1"> Fauna <>

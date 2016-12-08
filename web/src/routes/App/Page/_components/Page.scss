@@ -1,3 +1,8 @@
 .wikiParagraph {
   margin-left: 1em;
 }
+
+#pageContent {
+  z-index: 2;
+  min-height: 450px;
+}

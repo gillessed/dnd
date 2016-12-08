@@ -13,6 +13,7 @@ import java.util.List;
 public interface PageResponse {
     WikiPage getPage();
     List<DirectoryEntry> getDirectoryEntries();
+    List<DirectoryEntry> getParentPaths();
 
     class Builder extends ImmutablePageResponse.Builder {}
 }
