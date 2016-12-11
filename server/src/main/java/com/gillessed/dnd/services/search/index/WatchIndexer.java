@@ -127,7 +127,7 @@ public class WatchIndexer implements Indexer, Runnable {
             try {
                 page = pageService.getPage(pageFile, false, false);
             } catch (ParsingException e) {
-                log.error("Could not parse page {}. Skipping index...", e);
+                log.error(String.format("Could not parse page %s. Skipping index...", pageFile), e);
                 return;
             }
             String target = source.replace(File.separator, "_");

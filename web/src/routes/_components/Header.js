@@ -42,7 +42,7 @@ class Header extends Component {
                     <i className='user icon'/>
                     Charater Creator
                 </Link>
-                <a href={SERVER_ASSET_URL + "/karyus-full.png"} className='item'>
+                <a href={'/karyus-full.png'} className='item'>
                     <i className='map icon'/>
                     World Map
                 </a>

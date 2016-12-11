@@ -15,5 +15,6 @@ dependencies {
     processor "org.immutables:value:${immutablesVersion}"
     compile "io.dropwizard:dropwizard-core:${dropwizardVersion}"
     compile "io.dropwizard:dropwizard-auth:${dropwizardVersion}"
+    compile "io.dropwizard:dropwizard-assets:${dropwizardVersion}"
     compile "com.hubspot.dropwizard:dropwizard-guice:${dropwizardGuiceVersion}"
 }

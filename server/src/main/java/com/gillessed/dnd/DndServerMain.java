@@ -13,6 +13,7 @@ import com.google.inject.Injector;
 import com.google.inject.Stage;
 import com.hubspot.dropwizard.guice.GuiceBundle;
 import io.dropwizard.Application;
+import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import org.eclipse.jetty.servlets.CrossOriginFilter;
@@ -63,6 +64,7 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
                 guiceBundleInjector.getProvider(DndSessionAuthenticator.class),
                 guiceBundleInjector.getProvider(DndLoginAuthenticator.class)
         ));
+        bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
     }
 
     @Override
@@ -75,6 +77,7 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
         indexLogger.info("Pre-index finished: {}", indexer.getIndex());
         indexer.start();
 
+        environment.jersey().setUrlPattern("/api/*");
         environment.lifecycle().addLifeCycleListener(this);
     }
 

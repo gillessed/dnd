@@ -34,7 +34,7 @@ import java.util.stream.Collectors;
 
 @Singleton
 public class PageServiceImpl implements PageService {
-    private static final Logger logger = LoggerFactory.getLogger(PageServiceImpl.class);
+    private static final Logger log = LoggerFactory.getLogger(PageServiceImpl.class);
 
     private final PageTokenizerFactory pageTokenizerFactory;
     private final PageParserFactory pageParserFactory;
@@ -76,25 +76,30 @@ public class PageServiceImpl implements PageService {
             pathObject = pathObject.resolve("index");
         }
         String text = new String(Files.readAllBytes(pathObject));
-        List<Token> tokens = pageTokenizerFactory.createPageTokenizer().tokenize(text);
-        List<Element> elements = pageParserFactory.createPageParser().parseTokens(tokens);
-        WikiPage page;
-        if (parseAll) {
-            page = pageCompilerFactory.createPageCompiler().compilePage(elements, path);
-        } else {
-            page = pageCompilerFactory.createPageCompiler().compileTitle(elements, path);
+        try {
+            List<Token> tokens = pageTokenizerFactory.createPageTokenizer().tokenize(text);
+            List<Element> elements = pageParserFactory.createPageParser().parseTokens(tokens);
+            WikiPage page;
+            if (parseAll) {
+                page = pageCompilerFactory.createPageCompiler().compilePage(elements, path);
+            } else {
+                page = pageCompilerFactory.createPageCompiler().compileTitle(elements, path);
+            }
+            pageCache.addToCache(page, path);
+            return page;
+        } catch (ParsingException e) {
+            log.warn("Error parsing page {}", path);
+            throw e;
         }
-        pageCache.addToCache(page, path);
-        return page;
     }
 
     @Override
-    public List<WikiPage> getPagesByFilename(String filename) throws IOException {
+    public List<WikiPage> getPagesByFilename(String filePattern) throws IOException {
         List<Path> matchingPaths = new ArrayList<>();
         Files.walkFileTree(pagesDir, new SimpleFileVisitor<Path>() {
             @Override
             public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                if (dir.toString().endsWith(filename)) {
+                if (matchesFilename(dir.toString())) {
                     matchingPaths.add(dir.toAbsolutePath().normalize());
                 }
                 return FileVisitResult.CONTINUE;
@@ -102,10 +107,15 @@ public class PageServiceImpl implements PageService {
 
             @Override
             public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                if (file.toString().endsWith(filename)) {
+                if (!file.getFileName().toString().equals("index") && matchesFilename(file.toString())) {
                     matchingPaths.add(file.toAbsolutePath().normalize());
                 }
                 return FileVisitResult.CONTINUE;
+            }
+
+            private boolean matchesFilename(String filename) {
+                String fileRegex = String.format(".*%s.*", filePattern.replace("*", ".*"));
+                return filename.matches(fileRegex);
             }
         });
         return matchingPaths.stream()
@@ -219,7 +229,7 @@ public class PageServiceImpl implements PageService {
             try {
                 return Optional.of(pageService.getPage(path, hitCache, parseAll));
             } catch (IOException | ParsingException e) {
-                logger.warn("Could not parse {}", path, e);
+                log.warn("Could not parse {}", path, e);
                 return Optional.empty();
             }
         }
