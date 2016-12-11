@@ -28,7 +28,7 @@ class NetworkFetcher {
                 'Content-Type': 'application/json'
             },
             options.headers);
-        return fetch(SERVER_URL + path, options).then((response) => {
+        return fetch(SERVER_API_URL + path, options).then((response) => {
             if (response.status != 200 && response.status != 500 && response.status != 401) {
                 throw new StatusCodeError({statusCode: response.status});
             }
@@ -57,7 +57,7 @@ class NetworkFetcher {
                 'X-Auth-Token': session.token
             },
             options.headers);
-        return fetch(SERVER_URL + path, options).then((response) => {
+        return fetch(SERVER_API_URL + path, options).then((response) => {
             if (response.status != 200 && response.status != 500 && response.status != 401) {
                 throw new StatusCodeError({statusCode: response.status});
             }

@@ -29,7 +29,7 @@ class Header extends Component {
         <div className='ui pointing link dropdown header item'>
             <i className='content icon'/>
             <span className='text'>Tabletop</span>
-            <div className='menu'>
+            <div className='menu' id="mainDropdown">
                 <IndexLink to={this.props.session ? '/app' : '/'} className='item'>
                     <i className='home icon'/>
                     Home
@@ -42,6 +42,10 @@ class Header extends Component {
                     <i className='user icon'/>
                     Charater Creator
                 </Link>
+                <a href={SERVER_ASSET_URL + "/karyus-full.png"} className='item'>
+                    <i className='map icon'/>
+                    World Map
+                </a>
             </div>
         </div>
 

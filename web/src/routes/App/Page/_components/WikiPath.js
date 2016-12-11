@@ -48,8 +48,6 @@ export default class extends Component {
         } else if (section.active) {
             return <div key={this.objectKey++} className='active section'>{section.title}</div>;
         } else {
-            console.log(section);
-
             return (
                 <Link key={this.objectKey++}
                          to={'/app/page/' + section.path}
