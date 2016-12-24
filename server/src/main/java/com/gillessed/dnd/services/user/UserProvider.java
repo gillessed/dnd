@@ -1,4 +1,4 @@
-package com.gillessed.dnd.services.auth;
+package com.gillessed.dnd.services.user;
 
 import com.gillessed.dnd.model.auth.User;
 

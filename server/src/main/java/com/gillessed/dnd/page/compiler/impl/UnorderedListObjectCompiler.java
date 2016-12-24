@@ -6,8 +6,6 @@ import com.gillessed.dnd.model.page.objects.WikiListItem;
 import com.gillessed.dnd.page.compiler.AbstractObjectCompiler;
 import com.gillessed.dnd.page.compiler.ObjectCompiler;
 import com.gillessed.dnd.page.compiler.ObjectCompilerFactory;
-import com.gillessed.dnd.page.compiler.PageCompiler;
-import com.gillessed.dnd.page.compiler.SubElementFinder;
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.parser.Element;
 import com.google.common.collect.Lists;
@@ -31,7 +29,7 @@ public class UnorderedListObjectCompiler extends AbstractObjectCompiler implemen
         checkElementsNotEmpty(elements);
         checkAttributesEmpty(elements);
         List<List<Element>> subElements = SubElementFinder.findSubElements(elements.subList(1, elements.size() - 1));
-        List<WikiObject> wikiObjects = PageCompiler.parseSubElements(
+        List<WikiObject> wikiObjects = SubElementParser.parseSubElements(
                 elements,
                 subElements,
                 ACCEPTABLE_CLASSES,

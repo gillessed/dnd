@@ -8,20 +8,8 @@ server:
 
 logging:
   level: INFO
-  loggers:
-    "com.gillessed.dnd.rest.services.search.index":
-      level: DEBUG
-      appenders:
-        - type: file
-          currentLogFilename: log/dnd-indexer.log
-          archive: true
-          archivedLogFilenamePattern: log/dnd-indexer-%d.log.gz
-          archivedFileCount: 5
   appenders:
     - type: console
 
 root: pages
-indexer:
-  type: watch
 sessionStoreFile: files/sessions.yml
-pageCacheTimeToLive: 300

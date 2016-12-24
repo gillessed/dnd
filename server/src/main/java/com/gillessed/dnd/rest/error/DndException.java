@@ -8,6 +8,11 @@ public class DndException extends RuntimeException {
         this.error = error;
     }
 
+    public DndException(DndError error) {
+        super();
+        this.error = error;
+    }
+
     public DndError getError() {
         return error;
     }

@@ -2,6 +2,7 @@ import React from 'react'
 import Main from './Main'
 import WikiRoute from './Wiki'
 import PageRoute from './Page'
+import StatusRoute from './Status'
 
 export const createRoutes = (store) => ({
     path: 'app',
@@ -9,7 +10,8 @@ export const createRoutes = (store) => ({
     indexRoute: Main,
     childRoutes: [
         WikiRoute(store),
-        PageRoute(store)
+        PageRoute(store),
+        StatusRoute(store)
     ],
     onEnter(nextState, replace, callback) {
         if (!store.getState().globals.session) {

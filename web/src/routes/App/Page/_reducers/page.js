@@ -46,7 +46,7 @@ export const fetchPage = (pagePath) => {
         dispatch(setPage(null));
         return Fetcher.sessionFetch('/page', {
             method: 'POST',
-            body: JSON.stringify({ page: pagePath })
+            body: JSON.stringify({ target: pagePath })
         }).then((json) => {
             json.path = pagePath;
             dispatch(setPage(json));

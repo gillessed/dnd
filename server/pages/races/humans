@@ -1,10 +1,18 @@
-<title desc="Human Race">Humans<>
-<section> Introduction <>
-    <p>Humans are a recent race to appear in Karyus, but are one of the most prolific.<>
-    <p>Humans are one of the few races that have little innate ability to tap into the mana in the air, but have
-    the power to harvest mana into physical form. There are a few humans who are known to be able to manipulate
-    mana effectively, but they are very few, and are not very powerful.<>
-<section> Description <>
-    <p>Adult humans range from around 5 to 6 feet, in height. The skin color ranges from a dark brown to a pale white, and
-    can hit all ranges in between. Beyond that, most traits very mostly on region.<>
-    <p>Humans usually live 50-70 years, and hit adulthood around 17.<>
+<meta
+    desc="Human Race"
+    status="DRAFT"
+><>
+
+<title>Humans<>
+
+<content>
+    <section> Introduction <>
+        <p>Humans are a recent race to appear in Karyus, but are one of the most prolific.<>
+        <p>Humans are one of the few races that have little innate ability to tap into the mana in the air, but have
+        the power to harvest mana into physical form. There are a few humans who are known to be able to manipulate
+        mana effectively, but they are very few, and are not very powerful.<>
+    <section> Description <>
+        <p>Adult humans range from around 5 to 6 feet, in height. The skin color ranges from a dark brown to a pale white, and
+        can hit all ranges in between. Beyond that, most traits very mostly on region.<>
+        <p>Humans usually live 50-70 years, and hit adulthood around 17.<>
+<>

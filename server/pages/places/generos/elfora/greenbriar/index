@@ -1,19 +1,32 @@
-<title desc="Capital of Elfora"> Greenbriar <>
-<section> Introduction <>
-    <p>Greenbriar is the capital of <a t="#generos_elfora">#<>. It is the head of the government, and economically
-    the most powerful city in the nation.<>
-<section> History <>
-    <heading level="1"> Settlers <>
-        <p>When settlers from Kergoon came out across the plains of Generos, they moved across slowly, all the way to the
-        other shores. Along the way, there were pockets of small hamlets and refuges where people were eking out a meager
-        existence.<>
-        <p>The largest of such villages in the west, was a small town named Greenbriar. The people in the town were descendants
-        of Galacians, but had lost much of their knowledge of mana and magic. The town had no more than a thousand people,
-        but was growing little by little.<>
-        <p>The settlers were drawn to Greenbriar as a place where they could settle down without much trouble since there
-        were already people around. It also attracted some interest as it was build on top of reasonably well preserved
-        Galacian ruins. The bay also provided access to the ocean and was easily protectable, and full of wildlife to make
-        a living fishing.<>
-    <heading level="1"> City State <>
-        <p>Greenbriar quickly became the most influential town in the area, and it became one of the great city states
-        of the plains of <a t="#places_generos">#<>.<>
+<meta
+    desc="Capital of Elfora"
+    status="DRAFT"
+><>
+
+<title> Greenbriar <>
+
+<content>
+    <section> Introduction <>
+        <p>Greenbriar is the capital of <a t="#places_*_elfora">#<>. It is the head of the government, and economically
+        the most powerful city in the nation.<>
+    <section> History <>
+        <heading level="1"> Settlers <>
+            <p>When settlers from Kergoon came out across the plains of Generos, they moved across slowly, all the way to the
+            other shores. Along the way, there were pockets of small hamlets and refuges where people were eking out a meager
+            existence.<>
+            <p>The largest of such villages in the west, was a small town named Greenbriar. The people in the town were descendants
+            of Galacians, but had lost much of their knowledge of mana and magic. The town had no more than a thousand people,
+            but was growing little by little.<>
+            <p>The settlers were drawn to Greenbriar as a place where they could settle down without much trouble since there
+            were already people around. It also attracted some interest as it was build on top of reasonably well preserved
+            Galacian ruins. The bay also provided access to the ocean and was easily protectable, and full of wildlife to make
+            a living fishing.<>
+        <heading level="1"> City State <>
+            <p>Greenbriar quickly became the most influential town in the area, and it became one of the great city states
+            of the plains of <a t="#places_generos">#<>.<>
+<>
+
+<dm>
+    <section> The Shadowcorps <>
+        <p>There is an elite group of soldiers who work for the Elforan government called the shadowcorp.<>
+<>

@@ -7,11 +7,15 @@
   &.notActive {
     &:hover {
       text-decoration: underline;
+      cursor: pointer;
     }
   }
 }
 
 @media screen and (max-width: 1390px) {
+  .ui.left.rail {
+    display: none !important;
+  }
   #leftPageRail {
     display: none !important;
   }

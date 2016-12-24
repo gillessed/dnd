@@ -7,7 +7,6 @@ import com.gillessed.dnd.model.page.objects.WikiText;
 import com.gillessed.dnd.page.compiler.AbstractObjectCompiler;
 import com.gillessed.dnd.page.compiler.ObjectCompiler;
 import com.gillessed.dnd.page.compiler.ObjectCompilerFactory;
-import com.gillessed.dnd.page.compiler.SubElementFinder;
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.parser.Element;
 import com.google.common.collect.Lists;

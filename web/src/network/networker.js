@@ -15,7 +15,9 @@ class NetworkFetcher {
         let dispatch = this.store.dispatch;
         if(error.errorObject) {
             dispatch(addErrorNotification('Error', error.errorObject.errorMessage));
-            browserHistory.push(error.errorObject.redirect);
+            if (error.errorObject.redirect) {
+                browserHistory.push(error.errorObject.redirect);
+            }
         } else {
             dispatch(addErrorNotification('Error', 'There was an error connecting to the server.'));
             browserHistory.push('/app');

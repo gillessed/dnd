@@ -14,10 +14,8 @@ public class TitleCompiler extends AbstractObjectCompiler implements ObjectCompi
     public WikiObject compileObject(List<Element> elements) throws CompilerException {
         checkElementsNotEmpty(elements);
         checkThreeTextEnd(elements);
-        String description = parseAttribute("desc", elements.get(0));
         return ImmutableWikiTitle.builder()
                 .text(elements.get(1).getValue().trim())
-                .description(description)
                 .build();
     }
 }

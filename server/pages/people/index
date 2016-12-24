@@ -1,3 +1,11 @@
-<title desc="People of Karyus"> People <>
-<section> Introduction <>
-    <p>People of the world.<>
+<meta
+    desc="People of Karyus"
+    status="DRAFT"
+><>
+
+<title> People <>
+<content>
+    <section> Introduction <>
+        <p>People of the world.<>
+<>
+

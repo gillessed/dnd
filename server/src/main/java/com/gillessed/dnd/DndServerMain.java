@@ -1,6 +1,7 @@
 package com.gillessed.dnd;
 
 import com.gillessed.dnd.bundles.auth.DndAuthBundle;
+import com.gillessed.dnd.bundles.auth.DndAuthorizer;
 import com.gillessed.dnd.bundles.auth.DndLoginAuthenticator;
 import com.gillessed.dnd.bundles.auth.DndSessionAuthenticator;
 import com.gillessed.dnd.bundles.guice.DndAuthModule;
@@ -8,7 +9,8 @@ import com.gillessed.dnd.bundles.guice.DndPageModule;
 import com.gillessed.dnd.bundles.guice.DndResourcesModule;
 import com.gillessed.dnd.bundles.guice.DndServicesModule;
 import com.gillessed.dnd.rest.error.DndRuntimeExceptionMapper;
-import com.gillessed.dnd.services.search.index.Indexer;
+import com.gillessed.dnd.services.page.PageProvider;
+import com.gillessed.dnd.services.page.impl.PageFileCrawler;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
 import com.hubspot.dropwizard.guice.GuiceBundle;
@@ -23,21 +25,14 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.DispatcherType;
 import javax.servlet.FilterRegistration;
-import java.io.IOException;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.EnumSet;
 
 public class DndServerMain extends Application<DndConfiguration> implements LifeCycle.Listener {
     private final Logger log = LoggerFactory.getLogger(DndServerMain.class);
-    private final Logger indexLogger = LoggerFactory.getLogger(Indexer.class);
 
     private Injector guiceBundleInjector;
-    private Indexer indexer;
+    private PageProvider pageProvider;
+    private PageFileCrawler pageFileCrawler;
 
     public static void main(String[] args) throws Exception {
         new DndServerMain().run(args);
@@ -62,7 +57,8 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
         guiceBundleInjector = guiceBundle.getInjector();
         bootstrap.addBundle(new DndAuthBundle(
                 guiceBundleInjector.getProvider(DndSessionAuthenticator.class),
-                guiceBundleInjector.getProvider(DndLoginAuthenticator.class)
+                guiceBundleInjector.getProvider(DndLoginAuthenticator.class),
+                guiceBundleInjector.getProvider(DndAuthorizer.class)
         ));
         bootstrap.addBundle(new AssetsBundle("/assets", "/", "index.html"));
     }
@@ -71,25 +67,15 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
     public void run(DndConfiguration configuration, Environment environment) throws Exception {
         environment.jersey().register(new DndRuntimeExceptionMapper());
         enableCors(environment);
-        //Shitty, but starts the indexer by calling the injector to actually perform injection.
-        Indexer indexer = guiceBundleInjector.getProvider(Indexer.class).get();
-        preIndex(Paths.get(configuration.getRoot()), indexer);
-        indexLogger.info("Pre-index finished: {}", indexer.getIndex());
-        indexer.start();
+
+        pageProvider = guiceBundleInjector.getProvider(PageProvider.class).get();
+        pageProvider.start();
+
+        pageFileCrawler = guiceBundleInjector.getProvider(PageFileCrawler.class).get();
+        pageFileCrawler.start();
 
         environment.jersey().setUrlPattern("/api/*");
         environment.lifecycle().addLifeCycleListener(this);
-    }
-
-    private void preIndex(Path rootPath, Indexer indexer) throws IOException {
-        Files.walkFileTree(rootPath, new SimpleFileVisitor<Path>() {
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                indexLogger.info("Pre-indexing {}", file);
-                indexer.indexPage(file, false);
-                return FileVisitResult.CONTINUE;
-            }
-        });
     }
 
     private void enableCors(Environment environment) {
@@ -117,7 +103,7 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
 
     @Override
     public void lifeCycleStopping(LifeCycle event) {
-        indexer.stop();
+        pageFileCrawler.stop();
     }
 
     @Override

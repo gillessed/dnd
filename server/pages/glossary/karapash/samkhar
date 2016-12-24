@@ -1,10 +1,18 @@
-<title desc="Title for the Ruler of Karapash">Samkhar<>
-<section> Meaning <>
-<p> The Samkhar is the title given to the current and previous rulers of <a t="#places_karapash">#<>. In their native language,
-it roughly means "God of Water". It is a tribute to how much the people believe in the use of water mana and the bounty
-the Samkhar gives the land.<>
-<p> The Samkhar is meant to be the most powerful and skilled water mage in the land. Lineage matters less in Karapash than
-ability to manipulate water mana.<>
-<p> Every ten years, or when the current Samkhar passes away, a tournament is held to decide the next Samkhar. Even
-foreigners are allowed to participate, although they have never won. The winner of this tournament goes on to become
-the next Samkhar.<>
+<meta
+    desc="Title for the Ruler of Karapash"
+    status="DRAFT"
+><>
+
+<title>Samkhar<>
+<content>
+    <section> Meaning <>
+        <p> The Samkhar is the title given to the current and previous rulers of <a t="#places_karapash">#<>. In their native language,
+        it roughly means "God of Water". It is a tribute to how much the people believe in the use of water mana and the bounty
+        the Samkhar gives the land.<>
+        <p> The Samkhar is meant to be the most powerful and skilled water mage in the land. Lineage matters less in Karapash than
+        ability to manipulate water mana.<>
+        <p> Every ten years, or when the current Samkhar passes away, a tournament is held to decide the next Samkhar. Even
+        foreigners are allowed to participate, although they have never won. The winner of this tournament goes on to become
+        the next Samkhar.<>
+<>
+

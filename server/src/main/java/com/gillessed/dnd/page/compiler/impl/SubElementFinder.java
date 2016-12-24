@@ -1,4 +1,4 @@
-package com.gillessed.dnd.page.compiler;
+package com.gillessed.dnd.page.compiler.impl;
 
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.parser.Element;

@@ -1,13 +1,12 @@
 package com.gillessed.dnd;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.gillessed.dnd.services.search.config.IndexerFactory;
 import io.dropwizard.Configuration;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 public class DndConfiguration extends Configuration {
+    private static final int DEFAULT_SEARCH_RESULT_LIMIT = 25;
 
     @NotNull
     private String root;
@@ -18,18 +17,6 @@ public class DndConfiguration extends Configuration {
     @JsonProperty
     public void setRoot(String root) {
         this.root = root;
-    }
-
-    @Valid
-    @NotNull
-    private IndexerFactory indexerFactory;
-    @JsonProperty("indexer")
-    public IndexerFactory getIndexerFactory() {
-        return indexerFactory;
-    }
-    @JsonProperty("indexer")
-    public void setIndexerFactory(IndexerFactory indexerFactory) {
-        this.indexerFactory = indexerFactory;
     }
 
     @NotNull
@@ -43,14 +30,13 @@ public class DndConfiguration extends Configuration {
         this.sessionStoreFile = sessionStoreFile;
     }
 
-    @NotNull
-    private long pageCacheTimeToLive = 60;
+    private int searchResultLimit = DEFAULT_SEARCH_RESULT_LIMIT;
     @JsonProperty
-    public long getPageCacheTimeToLive() {
-        return pageCacheTimeToLive;
+    public int getSearchResultLimit() {
+        return searchResultLimit;
     }
     @JsonProperty
-    public void setPageCacheTimeToLive(long pageCacheTimeToLive) {
-        this.pageCacheTimeToLive = pageCacheTimeToLive;
+    public void setSearchResultLimit(int searchResultLimit) {
+        this.searchResultLimit = searchResultLimit;
     }
 }

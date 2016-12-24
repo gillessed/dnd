@@ -6,6 +6,15 @@ import Fetcher from './network/networker';
 import { persistStore } from 'redux-persist'
 
 // ========================================================
+// Promise and Fetch polyfills
+// ========================================================
+import Promise from 'promise-polyfill';
+if (!window.Promise) {
+    window.Promise = Promise;
+}
+import 'whatwg-fetch'
+
+// ========================================================
 // Store Instantiation
 // ========================================================
 const initialState = window.___INITIAL_STATE__;

@@ -2,6 +2,8 @@ package com.gillessed.dnd.page.compiler;
 
 import com.gillessed.dnd.model.page.WikiObject;
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
+import com.gillessed.dnd.page.compiler.impl.SubElementParser;
+import com.gillessed.dnd.page.compiler.impl.SubElementFinder;
 import com.gillessed.dnd.page.parser.Element;
 import com.gillessed.dnd.model.page.objects.WikiText;
 
@@ -11,6 +13,12 @@ public abstract class AbstractObjectCompiler implements ObjectCompiler {
     protected void checkElementsNotEmpty(List<Element> elements) {
         if (elements.isEmpty()) {
             throw new IllegalStateException("Internal compiler error: elements cannot be empty.");
+        }
+    }
+
+    protected void checkElementsEmpty(List<Element> elements) {
+        if (!elements.isEmpty()) {
+            throw new IllegalStateException("Internal compiler error: elements must be empty.");
         }
     }
 
@@ -71,7 +79,7 @@ public abstract class AbstractObjectCompiler implements ObjectCompiler {
         checkElementsNotEmpty(elements);
         checkAttributesEmpty(elements);
         List<List<Element>> subElements = SubElementFinder.findSubElements(elements.subList(1, elements.size() - 1));
-        return PageCompiler.parseSubElements(
+        return SubElementParser.parseSubElements(
                 elements,
                 subElements,
                 acceptableClasses,

@@ -1,4 +1,4 @@
-package com.gillessed.dnd.services;
+package com.gillessed.dnd.services.session;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -25,8 +25,8 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.Collectors;
 
 @Singleton
-public class SessionService {
-    private final Logger log = LoggerFactory.getLogger(SessionService.class);
+public class SessionServiceImpl implements SessionService {
+    private final Logger log = LoggerFactory.getLogger(SessionServiceImpl.class);
 
     private final Map<String, Session> tokenToSessionMap;
     private final Map<User, Session> userToSessionMap;
@@ -35,7 +35,7 @@ public class SessionService {
     private final Path sessionStoreFile;
 
     @Inject
-    public SessionService(DndConfiguration configuration) {
+    public SessionServiceImpl(DndConfiguration configuration) {
         this.tokenToSessionMap = new HashMap<>();
         this.userToSessionMap = new HashMap<>();
         this.objectMapper = new ObjectMapper(new YAMLFactory());
@@ -72,9 +72,10 @@ public class SessionService {
             } catch (IOException e) {
                 throw new IllegalStateException("Could not write session data to file", e);
             }
-        }, 0, 5, TimeUnit.SECONDS);
+        }, 0, 60, TimeUnit.SECONDS);
     }
 
+    @Override
     public Session createSessionForUser(User user) {
         Session session;
         lock.writeLock().lock();
@@ -98,6 +99,7 @@ public class SessionService {
         return newToken;
     }
 
+    @Override
     public Optional<Session> verifyToken(String token) {
         Session session;
         lock.readLock().lock();

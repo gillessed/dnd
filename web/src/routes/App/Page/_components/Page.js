@@ -15,6 +15,9 @@ export class Page extends Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            renderDmContent: false
+        };
         this.objectNumber = 0;
         this.sectionNumber = 1;
     }
@@ -32,6 +35,7 @@ export class Page extends Component {
                     {this.renderWikiTitle()}
                     {this.renderWikiSections()}
                     {this.renderLoader()}
+                    <div className='scroll-filler' style={{height: 500}}></div>
                 </div>
             </div>
         );
@@ -47,7 +51,7 @@ export class Page extends Component {
 
     renderLeftSidebar() {
         if (this.props.pageData) {
-            return <LeftPageSidebar/>
+            return <LeftPageSidebar renderDmContent={this.state.renderDmContent}/>
         } else {
             return null;
         }
@@ -63,13 +67,22 @@ export class Page extends Component {
 
     renderWikiTitle() {
         if (this.props.pageData) {
-            return <WikiTitle text={this.props.pageData.titleObject.text}/>
+            return <WikiTitle
+                text={this.props.pageData.title}
+                status={this.props.pageData.metadata.status}
+                dm={this.state.renderDmContent}
+                setDm={(dm) => {this.setState({renderDmContent: dm})}}
+            />
         }
     }
 
     renderWikiSections() {
         if (this.props.pageData) {
-            return this.props.pageData.wikiSections.map(this.renderWikiSection.bind(this));
+            if (this.state.renderDmContent) {
+                return this.props.pageData.dmContent.content.map(this.renderWikiSection.bind(this));
+            } else {
+                return this.props.pageData.pageContent.content.map(this.renderWikiSection.bind(this));
+            }
         } else if (!this.props.fetchingPage) {
             return <p>Click <Link to='/app/wiki'>here</Link> to return to the main wiki page.</p>;
         }

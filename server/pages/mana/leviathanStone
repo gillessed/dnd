@@ -1,8 +1,21 @@
-<title desc="Tool to Extract Mana">Leviathan Stone<>
-<section>Description<>
-    <p>Leviathan stones are the material used to extract mana from all other mana. They are rare and super valuable, and
-    are generally found occuring naturally in nature.<>
-    <p>The stones range in size from about a small pebble to head-sized boulder. The larger the rock, the more mana it
-    can extract at once. They are usually very geometric in shape, but very irregular. There are edges that form smooth
-    faces zig-zaggin all over the surface of the stones. The color of the stone is prismatic and rainbow patterns
-    ebb and flow around creating a beautiful dance of light.<>
+<meta
+    desc="Tool to Extract Mana"
+    status="DRAFT"
+><>
+
+<title>Leviathan Stone<>
+<content>
+    <section> Description <>
+
+        <p>Leviathan stones are the material used to extract <a t="#manaDust">#<> from all other matter. They are very rare, and
+        are generally found scattered across the world fairly randomly. They are not known to be concentrated anywhere, but
+        instead just appear, sometimes underground, sometimes on or in a tree, sometimes even floating in the air. This
+        makes the stones very hard to find, but very valuable. It is a viable business trade to scour the world for stones
+        to sell them to mana producers.<>
+
+        <p>The stones range in size from about a small pebble to head-sized boulder. The larger the rock, the more mana it
+        can extract at once. They are usually very geometric in shape, but very irregular. There are edges that form smooth
+        faces zig-zaggin all over the surface of the stones. The color of the stone is prismatic and rainbow patterns
+        ebb and flow across its surface creating a beautiful dance of light.<>
+<>
+

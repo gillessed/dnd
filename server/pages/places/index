@@ -1,12 +1,25 @@
-<title desc="The World"> Karyus <>
+<meta
+    desc="The World"
+    status="DRAFT"
+><>
 
-<section> Introduction <>
-    <p>The world of Karyus is filled with arcane magic and mechanical wonders. The origins of the world are somewhat
-    unclear and history has not been recorded for that long a time.<>
-    <p>Everything in Karyus revolves around mana particles. These are everpresent particles in all existing matter. They
-    can be harvested and used as a resource to do many things.<>
-    <p>Many different creatures inhabit Karyus, emcopassing many different sentient races. The most common races include
-    <a t="races_humans">Humans<>, <a t="races_cirrans">Cirrans<>, mapIcons and bar.<>
+<title> Karyus <>
 
-<section> History <>
-    <p>Some old stuff.<>
+<content>
+    <section> Introduction <>
+        <p>The world of Karyus is filled with arcane magic and mechanical wonders. The origins of the world are somewhat
+        unclear and history has not been recorded for that long a time.<>
+        <p>Everything in Karyus revolves around mana particles. These are everpresent particles in all existing matter. They
+        can be harvested and used as a resource to do many things.<>
+        <p>Many different creatures inhabit Karyus, emcopassing many different sentient races. The most common races include
+        <a t="races_humans">Humans<>, <a t="races_cirrans">Cirrans<>, mapIcons and bar.<>
+
+    <section> History <>
+        <p>Some old stuff.<>
+<>
+
+<dm>
+    <section> Foo <>
+        <p>The world of Karyus is filled with arcane magic and mechanical wonders. The origins of the world are somewhat
+        unclear and history has not been recorded for that long a time.<>
+<>

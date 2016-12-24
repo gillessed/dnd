@@ -1,40 +1,45 @@
-<title desc="Jungle in East Generos"> Kergoon <>
-<section> Introduction <>
-    <p>Kergoon is a thick jungle on the southeast shores of <a t="places_generos">#<>. The origins of many of
-    the countries in Generos come from here, but these days, there are not but a few tribal groups of humans living
-    there among the beasts of the jungle.<>
-<section> History <>
-    <heading level="1"> Pre-Karthuun <>
-        <p> In they days of the Galacian empire, Kergoon was inhabited by many tribes of humans who lived somewhat primitive
-        but happy lives. They were in harmony with nature, and some were even known to be able to innately use the mana
-        in the jungle. <>
+<meta
+    desc="Jungle in East Generos"
+    status="DRAFT"
+><>
 
-        <p> The people living in the jungle had a fair amount of contact with Galacia, mostly through trade. However, very
-        few records of this remain, and most of what is known has been passed down through generations of storytelling. <>
+<title> Kergoon <>
+<content>
+    <section> Introduction <>
+        <p>Kergoon is a thick jungle on the southeast shores of <a t="places_generos">#<>. The origins of many of
+        the countries in Generos come from here, but these days, there are not but a few tribal groups of humans living
+        there among the beasts of the jungle.<>
+    <section> History <>
+        <heading level="1"> Pre-Karthuun <>
+            <p> In they days of the Galacian empire, Kergoon was inhabited by many tribes of humans who lived somewhat primitive
+            but happy lives. They were in harmony with nature, and some were even known to be able to innately use the mana
+            in the jungle. <>
 
-    <heading level="1"> Post-Karthuun <>
-        <p> The <a t="apocalypseOfKarthuun">#<> had a strong impact on the jungle. In the years that followed the event,
-        it is said that many beasts awoke from a deep slumber and began to terrorize the jungle. The easy going tribesmen
-        were suddenly being attacked and battered by all sort of unspeakably creatures. <>
+            <p> The people living in the jungle had a fair amount of contact with Galacia, mostly through trade. However, very
+            few records of this remain, and most of what is known has been passed down through generations of storytelling. <>
 
-        <p> This change prompted most of the jungle dwellers to leave the jungle and venture out into the country,
-        eventually founding the city states of Generos. There are small number of people who stayed behind in the jungle,
-        but moved up into the trees. While the beasts were enormous and powerful, they were neither agile nor acrobatic.
-        They were stuck on the ground. <>
+        <heading level="1"> Post-Karthuun <>
+            <p> The <a t="apocalypseOfKarthuun">#<> had a strong impact on the jungle. In the years that followed the event,
+            it is said that many beasts awoke from a deep slumber and began to terrorize the jungle. The easy going tribesmen
+            were suddenly being attacked and battered by all sort of unspeakably creatures. <>
 
-        <p> The villages in the jungle are now integrated into the trees, with tree houses and rope bridges connecting
-        everything. They live in relative safety and shelter closer to the top of the jungle but no one dares venture
-        down to the surface anymore. <>
+            <p> This change prompted most of the jungle dwellers to leave the jungle and venture out into the country,
+            eventually founding the city states of Generos. There are small number of people who stayed behind in the jungle,
+            but moved up into the trees. While the beasts were enormous and powerful, they were neither agile nor acrobatic.
+            They were stuck on the ground. <>
 
-<section> Geography <>
+            <p> The villages in the jungle are now integrated into the trees, with tree houses and rope bridges connecting
+            everything. They live in relative safety and shelter closer to the top of the jungle but no one dares venture
+            down to the surface anymore. <>
 
-    <p> The jungle of Kergoon is extremely verdant and the tree grow extremely tall. The jungle itself is not very dense,
-    and so even at the ground level, it is not hard to get around, the tree canopies grow thick and wide, and cover up much
-    of the view of the sky. While it is not pitch black at the ground level, it is certainly dark. <>
+    <section> Geography <>
 
-    <p> Most of the terrain is relatively hilly, but not mountainous. There are many small ravines and creeks running
-    through the jungle which create a lot of ridges and small cliffs. Moving along the ground is not only dangerous,
-    but is also very slow and arduous. <>
+        <p> The jungle of Kergoon is extremely verdant and the tree grow extremely tall. The jungle itself is not very dense,
+        and so even at the ground level, it is not hard to get around, the tree canopies grow thick and wide, and cover up much
+        of the view of the sky. While it is not pitch black at the ground level, it is certainly dark. <>
 
-
+        <p> Most of the terrain is relatively hilly, but not mountainous. There are many small ravines and creeks running
+        through the jungle which create a lot of ridges and small cliffs. Moving along the ground is not only dangerous,
+        but is also very slow and arduous. <>
+<>
 

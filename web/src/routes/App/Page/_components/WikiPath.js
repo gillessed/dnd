@@ -50,7 +50,7 @@ export default class extends Component {
         } else {
             return (
                 <Link key={this.objectKey++}
-                         to={'/app/page/' + section.path}
+                         to={'/app/page/' + section.target}
                          className='directoryLink'>
                     {section.title}
                 </Link>

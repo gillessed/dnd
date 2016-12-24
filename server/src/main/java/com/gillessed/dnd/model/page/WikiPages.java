@@ -1,5 +1,6 @@
 package com.gillessed.dnd.model.page;
 
+import com.gillessed.dnd.model.page.objects.WikiContent;
 import com.gillessed.dnd.model.page.objects.WikiParagraph;
 import com.gillessed.dnd.model.page.objects.WikiSection;
 
@@ -10,9 +11,9 @@ public final class WikiPages {
     /**
      * Returns a list of all wiki objects in a page as a flat list.
      */
-    public static List<WikiObject> flatten(WikiPage page) {
+    public static List<WikiObject> flatten(WikiContent content) {
         List<WikiObject> objects = new ArrayList<>();
-        page.getWikiSections().forEach((WikiSection section) -> objects.addAll(flattenSection(section)));
+        content.getContent().forEach((WikiSection section) -> objects.addAll(flattenSection(section)));
         return objects;
     }
 

@@ -11,5 +11,4 @@ import org.immutables.value.Value;
 public interface WikiTitle extends WikiObject {
     String type = "title";
     String getText();
-    String getDescription();
 }

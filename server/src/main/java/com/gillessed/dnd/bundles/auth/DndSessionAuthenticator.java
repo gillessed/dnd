@@ -1,7 +1,7 @@
 package com.gillessed.dnd.bundles.auth;
 
 import com.gillessed.dnd.model.auth.Session;
-import com.gillessed.dnd.services.SessionService;
+import com.gillessed.dnd.services.session.SessionServiceImpl;
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 
@@ -12,10 +12,10 @@ import java.util.Optional;
 @Singleton
 public class DndSessionAuthenticator implements Authenticator<DndBearerTokenCredential, DndPrincipal> {
 
-    private final SessionService sessionService;
+    private final SessionServiceImpl sessionService;
 
     @Inject
-    public DndSessionAuthenticator(SessionService sessionService) {
+    public DndSessionAuthenticator(SessionServiceImpl sessionService) {
         this.sessionService = sessionService;
     }
 
