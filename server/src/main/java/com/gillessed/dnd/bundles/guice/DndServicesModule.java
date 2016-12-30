@@ -6,7 +6,6 @@ import com.gillessed.dnd.services.auth.impl.AuthServiceImpl;
 import com.gillessed.dnd.services.page.PageProvider;
 import com.gillessed.dnd.services.page.PageService;
 import com.gillessed.dnd.services.page.impl.InMemoryStorePageProviderImpl;
-import com.gillessed.dnd.services.page.impl.PageFileCrawler;
 import com.gillessed.dnd.services.page.impl.PageServiceImpl;
 import com.gillessed.dnd.services.search.SearchService;
 import com.gillessed.dnd.services.session.SessionService;
@@ -30,7 +29,6 @@ public class DndServicesModule extends AbstractModule {
         bind(AuthService.class).to(AuthServiceImpl.class);
         bind(UserService.class).to(UserServiceImpl.class);
         bind(PageProvider.class).to(InMemoryStorePageProviderImpl.class);
-        bind(PageFileCrawler.class);
         bind(SearchService.class);
     }
 

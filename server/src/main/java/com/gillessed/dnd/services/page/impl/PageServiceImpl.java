@@ -1,7 +1,10 @@
 package com.gillessed.dnd.services.page.impl;
 
+import com.gillessed.dnd.DndConfiguration;
 import com.gillessed.dnd.model.page.Target;
 import com.gillessed.dnd.model.page.WikiPage;
+import com.gillessed.dnd.model.page.objects.WikiLink;
+import com.gillessed.dnd.page.PageTransformer;
 import com.gillessed.dnd.page.exception.ParsingException;
 import com.gillessed.dnd.rest.api.response.page.DirectoryEntry;
 import com.gillessed.dnd.services.page.PageProvider;
@@ -12,6 +15,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -21,16 +29,35 @@ import java.util.stream.Collectors;
 public class PageServiceImpl implements PageService {
     private static final Logger log = LoggerFactory.getLogger(PageServiceImpl.class);
 
+    private final Path rootPageDir;
     private final PageProvider pageProvider;
+    private final PageTransformer pageTransformer;
 
     @Inject
-    public PageServiceImpl(PageProvider pageProvider) {
+    public PageServiceImpl(
+            DndConfiguration configuration,
+            PageProvider pageProvider,
+            PageTransformer pageTransformer) {
+        this.rootPageDir = Paths.get(configuration.getRoot()).toAbsolutePath();
         this.pageProvider = pageProvider;
+        this.pageTransformer = pageTransformer;
     }
 
     @Override
     public WikiPage getPage(Target target) throws IOException, ParsingException {
         return pageProvider.getPageByTarget(target);
+    }
+
+    @Override
+    public void reloadPage(Target target) throws IOException, ParsingException {
+        Path path = rootPageDir.resolve(target.getPath());
+        if (Files.isDirectory(path)) {
+            path = path.resolve("index");
+        }
+        String source = new String(Files.readAllBytes(path), StandardCharsets.UTF_8);
+        List<WikiLink> linkList = new ArrayList<>();
+        WikiPage page = pageTransformer.transformPage(source, target, linkList);
+        pageProvider.addOrUpdatePage(page, linkList);
     }
 
     @Override

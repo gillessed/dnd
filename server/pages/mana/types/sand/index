@@ -1,0 +1,34 @@
+<meta
+    desc="Mana Type: Sand"
+    status="DRAFT"
+><>
+
+<title>Sand Mana<>
+
+<content>
+    <section> Introduction <>
+        <p>Sand mana is a category of mana which is harvested from the fine sand of deserts and beaches.<>
+        <p>Sand mana has a weak affinity with <a t="#mana_*_sand">#<> and <a t="#mana_*_metal">#<>.<>
+
+    <section> Archetypes <>
+        <heading level="1">Sand Caster<>
+        <p>Sand casters are adept at manipulating sand to swirl around their enemies, biting into their flesh
+        and hampering their movement and senses.<>
+        <p>In the presence of sand, sand casters become .<>
+
+        <heading level="1">Stone Armorer<>
+        <p>Stone armorers cover themselves in a heavy stone armor giving themselves great boosts to their strength
+        and armor.<>
+
+        <heading level="1">Stone Animator<>
+        <p>The stone <a t="#mana_*_animators">animators<> can create stone golems to do his bidding. Stone golems have
+        great strength, but are very slow, and hard to manipulate.<>
+        <p>In the presence of stone, the stone animator can use that stone to create his golems using far
+        less mana.<>
+
+        <heading level="1">Ground Caster<>
+        <p>The ground caster is adept at manipulating stone in the ground to cause movement, shaking, and can even
+        make himself move at tremendous speeds.<>
+        <p>The ground caster requires a certain kind of ground to use his abilities, and so it is more often used as
+        a secondary set of skills.<>
+<>

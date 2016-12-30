@@ -23,7 +23,7 @@ const persist = persistStore(store, { blacklist: [
     'notifications',
     'sectionVisibility'
 ] }, () => {
-    Fetcher.store = store;
+    Fetcher.setStore(store);
 
     // ========================================================
     // Render Setup

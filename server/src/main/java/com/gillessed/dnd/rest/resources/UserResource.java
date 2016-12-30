@@ -19,7 +19,6 @@ import java.util.Collection;
 import java.util.Optional;
 
 @Singleton
-@Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("/user")
 public class UserResource {

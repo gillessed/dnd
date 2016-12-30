@@ -3,6 +3,7 @@ package com.gillessed.dnd.bundles.guice;
 import com.gillessed.dnd.rest.resources.AuthResource;
 import com.gillessed.dnd.rest.resources.PageResource;
 import com.gillessed.dnd.rest.resources.SearchResource;
+import com.gillessed.dnd.rest.resources.StatusResource;
 import com.gillessed.dnd.rest.resources.UserResource;
 import com.google.common.collect.ImmutableList;
 import com.google.inject.AbstractModule;
@@ -16,6 +17,7 @@ public class DndResourcesModule extends AbstractModule {
             .add(PageResource.class)
             .add(SearchResource.class)
             .add(UserResource.class)
+            .add(StatusResource.class)
             .build();
 
     @Override

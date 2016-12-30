@@ -10,13 +10,22 @@ import './Page.scss'
 export class Page extends Component {
     static propTypes = {
         fetchingPage: React.PropTypes.bool.isRequired,
-        pageData: React.PropTypes.object
+        pageData: React.PropTypes.object,
+        pagePath: React.PropTypes.string,
+        users: React.PropTypes.object.isRequired,
+        session: React.PropTypes.object.isRequired,
     };
 
     constructor(props) {
         super(props);
+        let user = this.props.users[this.props.session.userId];
+        let isAdmin = false;
+        if (user && user.content) {
+            isAdmin = user.content.roles.indexOf('admin') >= 0;
+        }
         this.state = {
-            renderDmContent: false
+            renderDmContent: false,
+            isAdmin
         };
         this.objectNumber = 0;
         this.sectionNumber = 1;
@@ -71,7 +80,9 @@ export class Page extends Component {
                 text={this.props.pageData.title}
                 status={this.props.pageData.metadata.status}
                 dm={this.state.renderDmContent}
+                isAdmin={this.state.isAdmin}
                 setDm={(dm) => {this.setState({renderDmContent: dm})}}
+                onReload={() => {this.props.reloadPage(this.props.pagePath)}}
             />
         }
     }

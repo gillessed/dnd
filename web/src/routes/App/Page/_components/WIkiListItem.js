@@ -26,9 +26,9 @@ export default class extends Component {
             return (
                 <Link
                         to={'/app/page/' + wikiObject.target}
-                        className={'wikiLink' + (wikiObject.isBroken ? ' broken' : '')}
+                        className={'wikiLink' + (wikiObject.target ? '' : ' broken')}
                         key={this.objectKey++}>
-                    {wikiObject.text}
+                    {wikiObject.displayText}
                 </Link>
             );
         } else if (wikiObject.type === 'text') {

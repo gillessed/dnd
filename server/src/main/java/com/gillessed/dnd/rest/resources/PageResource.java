@@ -73,6 +73,18 @@ public class PageResource {
         }
     }
 
+    @POST
+    @Path("/reload")
+    public void reloadPage(PageRequest pageRequest) {
+        try {
+            pageService.reloadPage(pageRequest.getTarget());
+        } catch (NoSuchFileException e) {
+            throw new DndException(DndError.Type.WIKI_PAGE_NOT_FOUND.error(), e);
+        } catch (IOException | ParsingException e) {
+            throw new DndException(DndError.Type.ERROR_BUILDING_PAGE.error(), e);
+        }
+    }
+
     private WikiPage removeDmContentIfNotAuthorized(WikiPage page) {
         Session session = sessionProvider.get();
         Collection<String> roles = userService.getRolesForUser(session.getUser());

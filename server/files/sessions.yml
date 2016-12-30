@@ -4,3 +4,8 @@
     userId: "1000"
     username: "admin"
     password: "palantir"
+- token: "4b37534e77b443fe9e297cf88f35fafe7310d888afb143e590e4f1dce7050198"
+  user:
+    userId: "1001"
+    username: "user"
+    password: "palantir"

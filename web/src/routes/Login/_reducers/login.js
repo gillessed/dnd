@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { browserHistory } from 'react-router';
 import { addErrorNotification } from '~/src/store/globals/notifications';
 import { createSession } from '~/src/store/globals/session';
+import * as users from '~/src/store/globals/users';
 import Fetcher from '~/src/network/networker';
 
 // ------------------------------------
@@ -16,11 +17,12 @@ export const DONE_LOGGING_IN = 'DONE_LOGGING_IN';
 export const login = (username, password) => {
     return (dispatch, getState) => {
         dispatch(setLoggingIn());
-        return Fetcher.rawFetch('/auth', {
+        return Fetcher.fetch('/auth', {
             method: 'POST',
             body: JSON.stringify({ username, password })
         }).then((json) => {
             dispatch(createSession(json.userId, json.token));
+            dispatch(users.actions.fetchUser(json.userId));
             browserHistory.push('/app');
             dispatch(doneLoggingIn());
         }).catch(() => {

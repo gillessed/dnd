@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Stack;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
@@ -109,7 +110,7 @@ public class PathTreeHashMap<T, K extends PathTreeMap.Key<T, K>, V>  implements 
     public Collection<V> valueSet() {
         return entryMap.values().stream()
                 .map(PathTreeMapEntry::get)
-                .filter((V value) -> value != null)
+                .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
     }
 

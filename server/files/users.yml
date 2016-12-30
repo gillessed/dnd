@@ -1,3 +1,6 @@
 - username: admin
   password: palantir
   userId: "1000"
+- username: user
+  password: palantir
+  userId: "1001"

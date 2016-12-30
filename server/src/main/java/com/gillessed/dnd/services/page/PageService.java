@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.List;
 
 public interface PageService {
-
     WikiPage getPage(Target target) throws IOException, ParsingException;
+    void reloadPage(Target target) throws IOException, ParsingException;
     List<DirectoryEntry> getDirectoryContents(Target target);
     List<DirectoryEntry> getParentPaths(Target target);
 }

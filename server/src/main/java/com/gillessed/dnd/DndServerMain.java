@@ -10,7 +10,6 @@ import com.gillessed.dnd.bundles.guice.DndResourcesModule;
 import com.gillessed.dnd.bundles.guice.DndServicesModule;
 import com.gillessed.dnd.rest.error.DndRuntimeExceptionMapper;
 import com.gillessed.dnd.services.page.PageProvider;
-import com.gillessed.dnd.services.page.impl.PageFileCrawler;
 import com.google.inject.Injector;
 import com.google.inject.Stage;
 import com.hubspot.dropwizard.guice.GuiceBundle;
@@ -32,7 +31,6 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
 
     private Injector guiceBundleInjector;
     private PageProvider pageProvider;
-    private PageFileCrawler pageFileCrawler;
 
     public static void main(String[] args) throws Exception {
         new DndServerMain().run(args);
@@ -71,9 +69,6 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
         pageProvider = guiceBundleInjector.getProvider(PageProvider.class).get();
         pageProvider.start();
 
-        pageFileCrawler = guiceBundleInjector.getProvider(PageFileCrawler.class).get();
-        pageFileCrawler.start();
-
         environment.jersey().setUrlPattern("/api/*");
         environment.lifecycle().addLifeCycleListener(this);
     }
@@ -87,27 +82,17 @@ public class DndServerMain extends Application<DndConfiguration> implements Life
     }
 
     @Override
-    public void lifeCycleStarting(LifeCycle event) {
-
-    }
+    public void lifeCycleStarting(LifeCycle event) {}
 
     @Override
-    public void lifeCycleStarted(LifeCycle event) {
-
-    }
+    public void lifeCycleStarted(LifeCycle event) {}
 
     @Override
-    public void lifeCycleFailure(LifeCycle event, Throwable cause) {
-
-    }
+    public void lifeCycleFailure(LifeCycle event, Throwable cause) {}
 
     @Override
-    public void lifeCycleStopping(LifeCycle event) {
-        pageFileCrawler.stop();
-    }
+    public void lifeCycleStopping(LifeCycle event) {}
 
     @Override
-    public void lifeCycleStopped(LifeCycle event) {
-
-    }
+    public void lifeCycleStopped(LifeCycle event) {}
 }

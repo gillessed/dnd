@@ -1,0 +1,37 @@
+<meta
+    desc="Mana Type: Stone"
+    status="DRAFT"
+><>
+
+<title>Stone Mana<>
+
+<content>
+    <section> Introduction <>
+        <p>Stone mana is a category of mana which is harvested from the rocks and stones in the ground. People
+        who master stone mana can throw large boulders, animate stone golems, cover themselves in rock armor,
+        and sometimes even break the ground one stands on.<>
+        <p>Stone mana has a weak affinity with <a t="#mana_*_sand">#<> and <a t="#mana_*_lava">#<>.<>
+
+    <section> Archetypes <>
+        <heading level="1">Boulder Caster<>
+        <p>Boulder casters specialize in manipulating large hunks of rock to throw and hurl at their enemies.
+        Different kinds of rock have different strengths and weaknesses.<>
+        <p>Creating boulders takes a significant amount of mana, but in the presence of rocks or stones, boulder
+        casters can use those instead and have an even greater effect.<>
+
+        <heading level="1">Stone Armorer<>
+        <p>Stone armorers cover themselves in a heavy stone armor giving themselves great boosts to their strength
+        and armor.<>
+
+        <heading level="1">Stone Animator<>
+        <p>The stone <a t="#mana_*_animators">animators<> can create stone golems to do his bidding. Stone golems have
+        great strength, but are very slow, and hard to manipulate.<>
+        <p>In the presence of stone, the stone animator can use that stone to create his golems using far
+        less mana.<>
+
+        <heading level="1">Ground Caster<>
+        <p>The ground caster is adept at manipulating stone in the ground to cause movement, shaking, and can even
+        make himself move at tremendous speeds.<>
+        <p>The ground caster requires a certain kind of ground to use his abilities, and so it is more often used as
+        a secondary set of skills.<>
+<>

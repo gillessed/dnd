@@ -12,36 +12,36 @@ export const SET_SECTION_VISIBLE = 'SET_SECTION_VISIBLE';
 // ------------------------------------
 // Actions
 // ------------------------------------
-export const setFetchingPage = () => {
+const setFetchingPage = () => {
     return {
         type: FETCHING_PAGE,
         payload: true
     }
 };
 
-export const doneFetchingPage = () => {
+const doneFetchingPage = () => {
     return {
         type: FETCHING_PAGE,
         payload: false
     }
 };
 
-export const setPage = (page) => {
+const setPage = (page) => {
     return {
         type: PAGE_DATA,
         payload: page
     }
 };
 
-export const setSectionVisible = (section, visible) => {
+const setSectionVisible = (section, visible) => {
     return {
         type: SET_SECTION_VISIBLE,
         payload: { section, visible }
     }
 };
 
-export const fetchPage = (pagePath) => {
-    return (dispatch, getState) => {
+const fetchPage = (pagePath) => {
+    return (dispatch) => {
         dispatch(setFetchingPage());
         dispatch(setPage(null));
         return Fetcher.sessionFetch('/page', {
@@ -55,6 +55,30 @@ export const fetchPage = (pagePath) => {
             dispatch(doneFetchingPage());
         });
     }
+};
+
+const reloadPage = (pagePath) => {
+    return (dispatch) => {
+        dispatch(setFetchingPage());
+        dispatch(setPage(null));
+        return Fetcher.sessionFetch('/page/reload', {
+            method: 'POST',
+            body: JSON.stringify({ target: pagePath })
+        }).then(() => {
+            dispatch(fetchPage(pagePath))
+        }).catch(() => {
+            dispatch(doneFetchingPage());
+        });
+    }
+};
+
+export const actions = {
+    setFetchingPage,
+    doneFetchingPage,
+    setPage,
+    setSectionVisible,
+    fetchPage,
+    reloadPage
 };
 
 // ------------------------------------

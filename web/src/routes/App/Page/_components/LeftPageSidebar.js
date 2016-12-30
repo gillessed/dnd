@@ -50,7 +50,7 @@ class LeftPageSidebar extends React.Component {
         let max = Math.max(...Object.keys(this.props.sectionVisibility));
         this.activeSection = 1;
         while (!this.props.sectionVisibility[this.activeSection] &&
-                this.activeSection <= max) {
+                this.activeSection <= max - 1) {
             this.activeSection++;
         }
     }

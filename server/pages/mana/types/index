@@ -4,22 +4,45 @@
 ><>
 
 <title>Mana Types<>
+
 <content>
     <section> Introduction <>
-        <p>There are many types of mana around the world, many sharing at least some common properties.<>
-    <section> List <>
+        <p>There are many many different kinds of mana in the world. The qualities of the mana are dependent right
+        down to the material composition of what is used to produce it.<>
+
+    <section> Categories <>
+
+        <p>These many types of mana can be put into the following broad categories. The mana can still be divided
+        into subtypes within each category, but these are broad supersets of mana.<>
         <ul>
-            <li>Forest<>
-            <li>Stone<>
-            <li>Fire<>
-            <li>Sand<>
-            <li>Water<>
-            <li>Steam<>
-            <li>Air<>
-            <li>Lava<>
-            <li>Metal<>
-            <li>Life<>
-            <li>Death<>
+            <li><a t="#mana_*_wood">#<><>
+            <li><a t="#mana_*_leaf">#<><>
+            <li><a t="#mana_*_vine">#<><>
+            <li><a t="#mana_*_poison">#<><>
+            <li><a t="#mana_*_stone">#<><>
+            <li><a t="#mana_*_fire">#<><>
+            <li><a t="#mana_*_sand">#<><>
+            <li><a t="#mana_*_water">#<><>
+            <li><a t="#mana_*_ice">#<><>
+            <li><a t="#mana_*_steam">#<><>
+            <li><a t="#mana_*_air">#<><>
+            <li><a t="#mana_*_lava">#<><>
+            <li><a t="#mana_*_metal">#<><>
+            <li><a t="#mana_*_beast">#<><>
+            <li><a t="#mana_*_life">#<><>
+            <li><a t="#mana_*_death">#<><>
+        <>
+
+    <section> Caster Types<>
+
+        <p>For each type of mana, there are also different kinds of casters. Each type of caster uses the mana in
+        a different way to create powerful effects.<>
+
+        <ul>
+            <li><a t="#mana_*_manipulators">#<><>
+            <li><a t="#mana_*_armorers">#<><>
+            <li><a t="#mana_*_animators">#<><>
+            <li><a t="#mana_*_itemWielders">#<><>
         <>
 <>
 

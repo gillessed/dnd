@@ -4,8 +4,10 @@ import com.gillessed.dnd.DndConfiguration;
 import com.gillessed.dnd.model.page.Target;
 import com.gillessed.dnd.model.page.WikiPage;
 import com.gillessed.dnd.model.page.objects.WikiLink;
+import com.gillessed.dnd.model.page.objects.WikiMeta;
 import com.gillessed.dnd.page.PageTransformer;
 import com.gillessed.dnd.page.exception.ParsingException;
+import com.gillessed.dnd.rest.api.response.status.StatusResponse;
 import com.gillessed.dnd.services.page.PageProvider;
 import com.gillessed.dnd.util.pathtreemap.PathTreeMap;
 import com.gillessed.dnd.util.pathtreemap.PathTreeMapEntry;
@@ -28,10 +30,12 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.stream.Collectors;
 
@@ -149,6 +153,38 @@ public class InMemoryStorePageProviderImpl implements PageProvider {
             results.addAll(startWithMatches);
             results.addAll(partialMatches);
             return results;
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+
+    @Override
+    public StatusResponse getStatus() {
+        lock.readLock().lock();
+        try {
+            AtomicInteger totalPageCount = new AtomicInteger(0);
+            AtomicInteger draftPageCount = new AtomicInteger(0);
+            AtomicInteger publishedPageCount = new AtomicInteger(0);
+            Collection<WikiPage> pages = pageMap.valueSet();
+            pages.forEach((WikiPage page) -> {
+                totalPageCount.incrementAndGet();
+                if (page.getMetadata().getStatus() == WikiMeta.Status.DRAFT) {
+                    draftPageCount.incrementAndGet();
+                } else if (page.getMetadata().getStatus() == WikiMeta.Status.PUBLISHED) {
+                    publishedPageCount.incrementAndGet();
+                }
+            });
+            List<WikiLink> brokenLinks = linkMap.values().stream()
+                    .filter((WikiLink link) -> link.getTarget() == null)
+                    .collect(Collectors.toList());
+            return new StatusResponse.Builder()
+                    .totalPageCount(totalPageCount.get())
+                    .draftPageCount(draftPageCount.get())
+                    .publishedPageCount(publishedPageCount.get())
+                    .linkCount(linkMap.values().size())
+                    .brokenLinkCount(brokenLinks.size())
+                    .brokenLinks(brokenLinks)
+                    .build();
         } finally {
             lock.readLock().unlock();
         }

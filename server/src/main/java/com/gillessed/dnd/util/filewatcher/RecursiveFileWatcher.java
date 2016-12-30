@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
-import java.nio.file.FileSystem;
+import java.nio.file.FileSystems;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -36,8 +36,7 @@ public class RecursiveFileWatcher implements Runnable {
 
     @Override
     public void run() {
-        FileSystem fileSystem = rootFolder.getFileSystem();
-        try (WatchService watchService = fileSystem.newWatchService()) {
+        try (WatchService watchService = FileSystems.getDefault().newWatchService()) {
             watchRegister.watchService = watchService;
             watchRegister.registerRecursive(rootFolder);
             while (running) {
