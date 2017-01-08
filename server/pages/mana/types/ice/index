@@ -1,0 +1,35 @@
+<meta
+    desc="Mana Type: Ice"
+    status="DRAFT"
+><>
+
+<title>Ice Mana<>
+
+<content>
+    <section> Introduction <>
+        <p>Ice mana is a type of mana which comes from the ice and snow of cold and frigid places like
+        tall mountains or islands at the edge of the world. Ice caster use the frozen water to create very solid
+        defenses and freeze their opponents to death.<>
+        <p>Water mana has an affinity with <a t="#mana_*_water">#<>.<>
+
+    <section> Caster Types <>
+        <heading level="1">Ice Manipulator<>
+        <p>Ice <a t="#mana_*_manipulators">manipulators<> can strike opponents with heavy chunks of ice, or try and
+        trap them and freeze them.<>
+        <p>In the presence of ice, they can use that ice in their attacks as well.<>
+
+        <heading level="1">Ice Armorers<>
+        <p>Ice <a t="#mana_*_armorers">armorers<> can cover themslves in the thick, solid sheets of ice which
+        give them great protection. Their physical attacks also hit with more force and can knock enemies flat off
+        of their feet.<>
+        <p>In the presence of ice, ice armorers can create even thicker layers of ice granting them greater protection.<>
+
+        <heading level="1">Ice Animators<>
+        <p>Ice <a t="#mana_*_animators">animators<> can create ice elementals to do their bidding. Ice elementals
+        are slow and very durable. They hit their opponents very hard and can also chill them.<>
+        <p>In the presence of ice, they can create even larger elementals.<>
+
+        <heading level="1">Ice Item Wielders<>
+        <p>Ice <a t="#mana_*_itemWielders">item wielders<> wield items that emit ice on use.
+        Examples include ice swords and flash freeze bangs.<>
+<>

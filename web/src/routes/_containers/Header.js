@@ -5,7 +5,8 @@ import * as _ from 'lodash'
 
 const mapStateToProps = (state) => {
     return {
-        session: state.globals.session
+        session: state.globals.session,
+        users: state.globals.users,
     }
 };
 

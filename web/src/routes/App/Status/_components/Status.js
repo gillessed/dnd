@@ -11,7 +11,6 @@ class Status extends Component {
     }
 
     render() {
-        console.log(this.props.status);
         this.objectNumber = 0;
         return (
             <div style={{ margin: '0 auto'}}>

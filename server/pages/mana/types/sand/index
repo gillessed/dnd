@@ -7,28 +7,26 @@
 
 <content>
     <section> Introduction <>
-        <p>Sand mana is a category of mana which is harvested from the fine sand of deserts and beaches.<>
-        <p>Sand mana has a weak affinity with <a t="#mana_*_sand">#<> and <a t="#mana_*_metal">#<>.<>
+        <p>Sand mana is a type of mana which is harvested from the fine sand of deserts and beaches.<>
+        <p>Sand mana has an affinity with <a t="#mana_*_stone">#<> and <a t="#mana_*_glass">#<>.<>
 
     <section> Archetypes <>
-        <heading level="1">Sand Caster<>
-        <p>Sand casters are adept at manipulating sand to swirl around their enemies, biting into their flesh
-        and hampering their movement and senses.<>
-        <p>In the presence of sand, sand casters become .<>
+        <heading level="1">Sand Manipulator<>
+        <p>Sand <a t="#mana_*_manipulators">manipulators<> throw about clouds of sand to hinder and scratch at
+        their enemies.<>
+        <p>In the presence of sand, sand manipulators can manipulate far greater amounts of sand.<>
 
-        <heading level="1">Stone Armorer<>
-        <p>Stone armorers cover themselves in a heavy stone armor giving themselves great boosts to their strength
-        and armor.<>
+        <heading level="1">Sand Armorers<>
+        <p>Sand <a t="#mana_*_armorers">armorers<> cover themselves in a cloud of flowing sand making them hard to see
+        and hard to hit.<>
+        <p>In the presence of sand, sand armorers can create significantly vaster clouds of armor.<>
 
-        <heading level="1">Stone Animator<>
-        <p>The stone <a t="#mana_*_animators">animators<> can create stone golems to do his bidding. Stone golems have
-        great strength, but are very slow, and hard to manipulate.<>
-        <p>In the presence of stone, the stone animator can use that stone to create his golems using far
-        less mana.<>
+        <heading level="1">Sand Animators<>
+        <p>Sand <a t="#mana_*_animators">animators<> can create sand elementals to do their bidding. Sand elementals
+        cannot hit hard, but are difficult to hit and can hinder enemies very effectively.<>
+        <p>In the presence of sand, sand casters can manipulate flames as well as emitting their own attacks.<>
 
-        <heading level="1">Ground Caster<>
-        <p>The ground caster is adept at manipulating stone in the ground to cause movement, shaking, and can even
-        make himself move at tremendous speeds.<>
-        <p>The ground caster requires a certain kind of ground to use his abilities, and so it is more often used as
-        a secondary set of skills.<>
+        <heading level="1">Sand Item Wielders<>
+        <p>Sand <a t="#mana_*_itemWielders">item wielders<> wield items that emit sand clouds upon use.
+        Examples include sand cloaks and sand bombs.<>
 <>

@@ -1,0 +1,37 @@
+<meta
+    desc="Mana Type: Steam"
+    status="DRAFT"
+><>
+
+<title>Steam Mana<>
+
+<content>
+    <section> Introduction <>
+        <p>Steam mana is a type of mana which comes from water vapour and boiled water. It is scalding hot and
+        can singe and burn enemies, and it can also cause light distortions and the like, creating illusions that
+        can confuse and misdirect enemies. It can also become thicker and obscure large areas and make things
+        hard to see.<>
+        <p>Water mana has an affinity with <a t="#mana_*_water">#<>.<>
+
+    <section> Caster Types <>
+        <heading level="1">Steam Manipulator<>
+        <p>Ice <a t="#mana_*_manipulators">manipulators<> can strike opponents with heavy chunks of ice, or try and
+        trap them and freeze them.<>
+        <p>In the presence of ice, they can use that ice in their attacks as well.<>
+
+        <heading level="1">Steam Armorers<>
+        <p>Steam <a t="#mana_*_armorers">armorers<> emit steam around themselves in an attempt to shield themselves
+        from view, but there is no defensive aspect to this. While using this technique, steam caster can move around
+        without being spotted.<>
+        <p>In the presence of steam, steam armorers can create even more confusing mirages and shield even more people
+        from vision.<>
+
+        <heading level="1">Steam Animators<>
+        <p>Steam <a t="#mana_*_animators">animators<> elementals are very sparse and can only hit with weak attacks.
+        However, they are practically invisible and unnoticeable, and can also create illusions of their own.<>
+        <p>In the presence of steam, they can create even larger elementals.<>
+
+        <heading level="1">Steam Item Wielders<>
+        <p>Ice <a t="#mana_*_itemWielders">item wielders<> wield items that emit ice on use.
+        Examples include steam cloaks and fog splashers.<>
+<>

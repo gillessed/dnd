@@ -7,10 +7,10 @@
 
 <content>
     <section> Introduction <>
-        <p>Stone mana is a category of mana which is harvested from the rocks and stones in the ground. People
+        <p>Stone mana is a type of mana which is harvested from the rocks and stones in the ground. People
         who master stone mana can throw large boulders, animate stone golems, cover themselves in rock armor,
         and sometimes even break the ground one stands on.<>
-        <p>Stone mana has a weak affinity with <a t="#mana_*_sand">#<> and <a t="#mana_*_lava">#<>.<>
+        <p>Stone mana has an affinity with <a t="#mana_*_sand">#<> and <a t="#mana_*_lava">#<>.<>
 
     <section> Archetypes <>
         <heading level="1">Boulder Caster<>

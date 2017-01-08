@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import { IndexLink, Link } from 'react-router'
 import './Header.scss'
-import HomeIcon from '../_assets/home_icon.png'
 import SearchBar from '~/src/components/SearchBar';
 
 class Header extends Component {
     constructor(props) {
         super(props);
+        let user = this.props.users[this.props.session.userId];
+        let isAdmin = false;
+        if (user && user.content) {
+            isAdmin = user.content.roles.indexOf('admin') >= 0;
+        }
+        this.state = {
+            isAdmin
+        };
     }
 
     componentDidMount() {
@@ -46,6 +53,7 @@ class Header extends Component {
                     <i className='map icon'/>
                     World Map
                 </a>
+                {this.renderStatusButton()}
             </div>
         </div>
 
@@ -55,6 +63,17 @@ class Header extends Component {
     </div>
 </div>
         );
+    }
+
+    renderStatusButton() {
+        if (this.state.isAdmin) {
+            return (
+                <a href={'/app/status'} className='item'>
+                    <i className='bar chart icon'/>
+                    Status
+                </a>
+            );
+        }
     }
 
     hideSidebar() {

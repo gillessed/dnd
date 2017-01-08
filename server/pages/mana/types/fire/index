@@ -7,18 +7,27 @@
 
 <content>
     <section> Introduction <>
-        <p>Fire mana is a category of mana which is harvested from any kind of fire. People
+        <p>Fire mana is a type of mana which is harvested from any kind of fire. People
         who master fire mana can create and eject large volumes of heat and fire.<>
-        <p>Fire mana has a weak affinity with <a t="#mana_*_lava">#<>.<>
+        <p>Fire mana has an affinity with <a t="#mana_*_lava">#<> and <a t="#mana_*_steam">#<>.<>
 
-    <section> Archetypes <>
-        <heading level="1">Fire Caster<>
-        <p>Fire casters are pretty singular in what they do: they cast flames in different arrays and pattern
-        to burn and immolate their opponents.<>
-        <p>In the presence of flames, fire casters can manipulate flames as well as emitting their own attacks.<>
+    <section> Caster Types <>
+        <heading level="1">Fire Manipulator<>
+        <p>Fire <a t="#mana_*_manipulators">manipulators<> cast flames out to burn and immolate their enemies.<>
+        <p>In the presence of flames, fire manipulators can manipulate flames as well as emitting their own attacks.<>
+
+        <heading level="1">Fire Armorers<>
+        <p>Fire <a t="#mana_*_armorers">armorers<> cover themselves in a blaze of flame to ward of enemy attack and
+        to cause burning with their physical attacks.<>
+        <p>In the presence of flames, fire armorers can create significantly stronger armorer due to the abundance of
+        flames around them.<>
 
         <heading level="1">Fire Animators<>
         <p>Fire <a t="#mana_*_animators">animators<> can create fire elementals to do their bidding. Fire elementals
         do not have much substance, but are fast and can emit deadly fire attacks.<>
-        <p>In the presence of flames, fire casters can manipulate flames as well as emitting their own attacks.<>
+        <p>In the presence of flames, fire animators can create much larger and more effective elementals.<>
+
+        <heading level="1">Fire Item Wielders<>
+        <p>Fire <a t="#mana_*_itemWielders">item wielders<> wield items that create some sort of flame upon use.
+        Examples include flaming swords and fire bombs.<>
 <>

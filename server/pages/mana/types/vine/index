@@ -1,0 +1,36 @@
+<meta
+    desc="Mana Type: Vine"
+    status="DRAFT"
+><>
+
+<title>Vine Mana<>
+
+<content>
+    <section> Introduction <>
+        <p>Vine mana is a type of mana which is harvested from the long vines of the jungle. Vine masters
+        can ensnare their foes and bind their movements. They can also deliver cracking blows from far away
+        and even around obstacles.<>
+        <p>Vine mana has an affinity with <a t="#mana_*_leaf">#<> and <a t="#mana_*_poison">#<>.<>
+
+    <section> Caster Types <>
+        <heading level="1">Vine Manipulator<>
+        <p>Vine <a t="#mana_*_manipulators">manipulators<> can whip about vines to strike and constrict
+        their enemies.<>
+        <p>In the presence of vines, vine manipulators can use those manipulate those as well to create much
+        larger effects.<>
+
+        <heading level="1">Vine Armorers<>
+        <p>Vine <a t="#mana_*_armorers">armorers<> wrap themselves in thick layers of vine that can actually deflect
+        attacks and also allows extremely fast movement. Vine armor tends to do less on the defensive side, but
+        instead is very powerful for attacking foes with all vines in the armor.<>
+        <p>In the presence of vines, they can make their armor several layers thicker granting extra defense.<>
+
+        <heading level="1">Vine Animators<>
+        <p>Vine <a t="#mana_*_animators">animators<> can create vine elementals to do their bidding. Vine elementals
+        wriggle and write into their opponents to grapple and entangle them.<>
+        <p>In the presence of vine, vine animators can create much larger and more effective elementals.<>
+
+        <heading level="1">Vine Item Wielders<>
+        <p>Vine <a t="#mana_*_itemWielders">item wielders<> wield items that can grab and entagle enemies. Examples
+        include vine whips and vine traps.<>
+<>

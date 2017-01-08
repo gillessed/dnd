@@ -1,0 +1,35 @@
+<meta
+    desc="Mana Type: Poison"
+    status="DRAFT"
+><>
+
+<title>Poison Mana<>
+
+<content>
+    <section> Introduction <>
+        <p>Poison mana is a type of mana which is harvested from all the toxic and deadly compounds
+        found in plants, trees, in the ground, etc... Poison casters are good at causing debilitating status
+        effects to their opponents, and making them unable to fight back.<>
+        <p>Poison mana has an affinity with <a t="#mana_*_plant">#<> and <a t="#mana_*_vine">#<>.<>
+
+    <section> Caster Types <>
+        <heading level="1">Poison Manipulator<>
+        <p>Vine <a t="#mana_*_manipulators">manipulators<> can create deadly clouds of poison vapours and create
+        different poisons which cause damage, decay and death to their enemies.<>
+        <p>In the presence of different poisonous substances, poison manipulators can use those poisons as a source as
+        well, but it will be that poison's effect.<>
+
+        <heading level="1">Poison Armorers<>
+        <p>Poison <a t="#mana_*_armorers">armorers<> cover themselves in a noxious miasma which make enemies think
+        twice about attacking you. This is also used to damage opponents with physical strikes.<>
+        <p>In the presence of poisons, they can make their armour out of that poison too.<>
+
+        <heading level="1">Poison Animators<>
+        <p>Poison <a t="#mana_*_animators">animators<> create poison elementals to do their bidding. Poison elementals
+        are like clouds of gas or liquid that go around trying to surround and infect their masters' enemies.<>
+        <p>In the presence of poisons, they can make elementals from those poisons too.<>
+
+        <heading level="1">Poison Item Wielders<>
+        <p>Poison <a t="#mana_*_itemWielders">item wielders<> wield items that emit poisons and toxins. Examples
+        include poisoned weapons and toxin grenades.<>
+<>

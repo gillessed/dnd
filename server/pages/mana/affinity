@@ -1,0 +1,18 @@
+<meta
+    desc="Similarities in Mana Types"
+    status="DRAFT"
+><>
+
+<title>Mana Affinities<>
+
+<content>
+    <section> Description <>
+        <p>A lot of mana types share a similarity to each other. For example, fire and lava have ssome similarities,
+        so their mana does as well.<>
+
+        <p>To cast a spell of mana type A, you can use mana of type B to cast it if A and
+        B have an affinity. Doing so results in a less strong spell, but still create an effect. <>
+
+        <p>All the abilities have an "affinity" section. This is what occurs when you perform affinity casting.<>
+<>
+

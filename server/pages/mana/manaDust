@@ -8,13 +8,38 @@
     <section> Introduction <>
         <p>Mana dust is something that only humans can create with the user of <a t="#leviathanStone">Leviathan Stones<>.<>
     <section> Process <>
-        <p> When a human touches a mana stone, the mana stone shines out a bright line in the opposite direction,
+        <p>When a human touches a mana stone, the mana stone shines out a bright line in the opposite direction,
         and whatever this light shines down upon starts to crumple to dust. This leftover dust is mana dust, that cen
         be used to create magical effects. <>
 
-        <p> The process of converting matter to mana dust takes a fair amount of time. However, the larger the
+        <p>The process of converting matter to mana dust takes a fair amount of time. However, the larger the
         <a t="#leviathanStone">#<>, the faster the process. It also differs depending on the type of matter. Certain
         kinds dissolve faster than others.<>
 
         <p>TODO:CalculatorTable<>
+    <section> Sigils <>
+        <p>The way mana dust is actually used to cast is by drawing sigils using the mana dust. The complex relationship
+        between mana particles is not well understood, but certain shapes and patterns create different kinds of
+        effects.<>
+
+        <p>These sigils can be drawn on any surface. Once complete, they activate immediately and create the desired
+        effect. After the spell has been completed, the sigil is gone and the mana dust is consumed. The mana has
+        returned to the earth.<>
+
+        <p>Due to the geometry complicated nature of sigils, they require very good precision. A slight error could
+        cause a weird effect to happen. A large error usually results in the spell fizzling and the dust being used
+        up with nothing happening. Spells all list these failure effects and their chances to occur.<>
+
+        <p>Sigils can be drawn on the spot, but can also be stored on a scroll nearly completed, requiring but a small
+        touch to cast the spell. This takes some preparation, and cannot be changed once set, but casting this becomes
+        a lot safer and more consistent.<>
+
+    <section>Material<>
+        <p>Normally, sigils spells are made to create the material and then manipulate it. Create matter takes a lot of
+        dust and so the effect are not usually huge. However, in the presence of their source material, casters can
+        create sigils to manipulate the material source directly. This will result in a stronger effect since the sigil
+        only has to manipulate the material.<>
+
+        <p>Skills will include a "source" effect section which describes what the sigil can do using existing source
+        materials. However, not all skills have a "source" effect.<>
 <>
