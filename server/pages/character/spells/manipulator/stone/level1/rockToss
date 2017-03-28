@@ -1,0 +1,21 @@
+<meta
+    desc="Level 1 Stone Manipulator Spell"
+    status="DRAFT"
+    type="Spell"
+
+    name="Rock Toss"
+    level="1"
+    casterType="Manipulator"
+    casterTypeLevel="1"
+    castingTime="1 standard action"
+    manaConsumption="2mg Water"
+    range="30 ft."
+    savingThrow="Fortitude save for no penatly to attack rolls"
+    description="Hurl a clump of small rocks."
+    effect="Deal 1d6 points of blunt damage. Target takes a -2 to attack rolls for the next 1 + 1 for every 3rd stone
+    level beyond 1 (max 4 total) turns."
+><>
+
+<title> Rock Toss <>
+<content><>
+

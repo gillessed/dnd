@@ -80,6 +80,11 @@ public class PathTreeHashMap<T, K extends PathTreeMap.Key<T, K>, V>  implements 
     }
 
     @Override
+    public void clear() {
+        entryMap.clear();
+    }
+
+    @Override
     public void removeBranch(K key) {
         Preconditions.checkNotNull(key, "Cannot remove branch with empty key from path tree map.");
         PathTreeMapEntry<T, K, V> rootEntry = entryMap.getOrDefault(key, null);

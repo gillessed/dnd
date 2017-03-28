@@ -1,0 +1,20 @@
+<meta
+    desc="Level 1 Sand Manipulator Spell"
+    status="DRAFT"
+    type="Spell"
+
+    name="Blind"
+    level="1"
+    casterType="Manipulator"
+    casterTypeLevel="1"
+    castingTime="1 standard action"
+    manaConsumption="1mg Sand"
+    range="30 ft."
+    savingThrow="Reflex save (+2) for no effect"
+    description="Cause a flash of sand to fly into the target's eyes."
+    effect="Target is blinded for 1 turn + 1 turn for every three sand levels beyond the first."
+><>
+
+<title> Blind <>
+<content><>
+

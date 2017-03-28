@@ -19,9 +19,20 @@ class CoreLayout extends Component {
     <div className='ui main text very relaxed container bound bottom'>
         <Notifications/>
         {this.props.children}
+        {this.renderLoader()}
     </div>
 </div>
         );
+    }
+
+    renderLoader() {
+        if (this.props.reload) {
+            return (
+                <div className='ui active inverted dimmer'>
+                    <div className='ui massive text loader'>Resyncing Pages</div>
+                </div>
+            );
+        }
     }
 }
 

@@ -3,6 +3,7 @@ import Main from './Main'
 import WikiRoute from './Wiki'
 import PageRoute from './Page'
 import StatusRoute from './Status'
+import GoRoute from './GoBoard'
 
 export const createRoutes = (store) => ({
     path: 'app',
@@ -11,7 +12,8 @@ export const createRoutes = (store) => ({
     childRoutes: [
         WikiRoute(store),
         PageRoute(store),
-        StatusRoute(store)
+        StatusRoute(store),
+        GoRoute(store),
     ],
     onEnter(nextState, replace, callback) {
         if (!store.getState().globals.session) {

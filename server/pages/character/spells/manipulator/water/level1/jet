@@ -1,0 +1,22 @@
+<meta
+    desc="Level 1 Water Manipulator Spell"
+    status="DRAFT"
+    type="Spell"
+
+    name="Jet"
+    level="1"
+    casterType="Manipulator"
+    casterTypeLevel="1"
+    castingTime="1 standard action"
+    manaConsumption="2mg Water"
+    range="30 ft."
+    savingThrow="Fortitude save for no movement"
+    description="Unleash a small jet of water."
+    effect="Deal 1d points of force damage. Can move target backwards 5 ft. backwards +5 ft. every
+    3rd water level beyond 1 (max 4 total). If the target were to hit a solid object, instead they
+    stop and 1d4 + 1 per 5 ft. moved damage."
+><>
+
+<title> Jet <>
+<content><>
+

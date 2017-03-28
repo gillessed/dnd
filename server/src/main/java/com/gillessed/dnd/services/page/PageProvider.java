@@ -13,6 +13,7 @@ public interface PageProvider {
     List<WikiPage> search(String query);
     StatusResponse getStatus();
     void start();
+    void reloadPages();
     void addOrUpdatePage(WikiPage page, List<WikiLink> links);
     void deletePage(Target target);
     void addListener(Listener listener);

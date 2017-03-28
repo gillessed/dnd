@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import WikiHeading from './WikiHeading'
 import WikiParagraph from './WIkiParagraph'
 import WikiUnorederedList from './WIkiUnorderedList'
+import WikiIndex from './WikiIndex'
 
 export default class extends Component {
 
     static propTypes = {
+        connected: React.PropTypes.bool.isRequired,
         text: React.PropTypes.string.isRequired,
         sectionNumber: React.PropTypes.number.isRequired,
-        wikiObjects: React.PropTypes.array.isRequired
+        wikiObjects: React.PropTypes.array.isRequired,
+        children: React.PropTypes.array.isRequired,
     };
 
     constructor(props) {
@@ -17,13 +20,15 @@ export default class extends Component {
     }
 
     componentDidMount() {
-        $('#' + this.id).visibility({
-            onUpdate: (calculations) => {
-                this.props.setSectionVisible(
-                    this.props.sectionNumber,
-                    calculations.onScreen && calculations.height - calculations.pixelsPassed > 70);
-            }
-        });
+        if (this.props.connected) {
+            $('#' + this.id).visibility({
+                onUpdate: (calculations) => {
+                    this.props.setSectionVisible(
+                        this.props.sectionNumber,
+                        calculations.onScreen && calculations.height - calculations.pixelsPassed > 70);
+                }
+            });
+        }
     }
 
     render() {
@@ -39,19 +44,24 @@ export default class extends Component {
     }
 
     renderSectionObject(wikiObject) {
-        if (wikiObject.type == 'heading') {
+        if (wikiObject.type === 'heading') {
             return <WikiHeading
                 text={wikiObject.text}
                 level={wikiObject.level}
                 key={this.objectKey++}/>
-        } else if (wikiObject.type == 'unorderedList') {
+        } else if (wikiObject.type === 'unorderedList') {
             return <WikiUnorederedList
                 wikiObjects={wikiObject.listItems}
                 key={this.objectKey++}/>
-        } else if (wikiObject.type == 'paragraph') {
+        } else if (wikiObject.type === 'paragraph') {
             return <WikiParagraph
                 wikiObjects={wikiObject.wikiObjects}
                 key={this.objectKey++}/>
+        } else if (wikiObject.type === 'index' && this.props.connected) {
+            return <WikiIndex
+                title={wikiObject.title}
+                children={this.props.children}
+                key={this.objectKey++}/>;
         }
         return <p key={this.objectKey++}>Unidentified Wiki Object: {JSON.stringify(wikiObject)}</p>
     }

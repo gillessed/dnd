@@ -20,7 +20,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,6 +48,11 @@ public class PageServiceImpl implements PageService {
     }
 
     @Override
+    public void reloadAll() {
+        pageProvider.reloadPages();
+    }
+
+    @Override
     public void reloadPage(Target target) throws IOException, ParsingException {
         Path path = rootPageDir.resolve(target.getPath());
         if (Files.isDirectory(path)) {
@@ -61,13 +65,8 @@ public class PageServiceImpl implements PageService {
     }
 
     @Override
-    public List<DirectoryEntry> getDirectoryContents(Target target) {
-        Target parent = target.getParent();
-        if (parent == null) {
-            return Collections.emptyList();
-        }
-
-        return pageProvider.getChildrenForTarget(parent).stream()
+    public List<DirectoryEntry> getChildren(Target target) {
+        return pageProvider.getChildrenForTarget(target).stream()
                 .map(this::getEntryForTarget)
                 .collect(Collectors.toList());
     }

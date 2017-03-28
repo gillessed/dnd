@@ -1,17 +1,17 @@
 <meta
-    desc="Mana Type: Fire"
+    desc="Mana Type: Wood"
     status="DRAFT"
 ><>
 
-<title>Fire Mana<>
+<title>Wood Mana<>
 
 <content>
     <section> Introduction <>
         <p>Wood mana is a type of mana which is harvested from all the trees of the forest and in buildings.
         People who master fire mana can create and manipulate vast structure of wood. Wood is strong and tough,
-        but still easier to manipulate than <a t="mana_*_stone">stone<> or <a t="mana_*_metal">metal<>, thus
+        but still easier to manipulate than <a t="#mana_*_stone">stone<> or <a t="#mana_*_metal">metal<>, thus
         can give rise to more complicated shapes and structures more easily.<>
-        <p>Wood mana has an affinity with <a t="#mana_*_plant">#<> and <a t="#mana_*_vine">#<>.<>
+        <p>Wood mana has an affinity with <a t="#mana_*_leaf">#<> and <a t="#mana_*_vine">#<>.<>
 
     <section> Caster Types <>
         <heading level="1">Wood Manipulator<>

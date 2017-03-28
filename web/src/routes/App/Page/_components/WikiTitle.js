@@ -18,40 +18,44 @@ export default class extends Component {
 
     render() {
         return (
-            <p style={{display: 'flex', alignItems: 'center', marginTop: 30, marginBottom: 30}}>
-                <span className='wikiTitle'>
-                    {this.props.text}
-                </span>
-                <span style={{marginLeft: 10}} className='wikiStatus'>
-                    {(this.props.status === 'DRAFT') ? ' (Draft)' : ''}
-                </span>
-                {this.renderReloadButton()}
-                <span style={{flexGrow: 1}}/>
-                <span style={{marginLeft: 30}} className='ui buttons'>
-                    <button
-                        className={'ui button' + (this.props.dm ? '' : ' active')}
-                        onClick={() => this.props.setDm(false)}>
-                        Game
-                    </button>
-                    <button
-                        className={'ui button' + (this.props.dm ? ' active' : '')}
-                        onClick={() => this.props.setDm(true)}>
-                        DM
-                    </button>
-                </span>
-            </p>
+            <div>
+                <div style={{marginTop: 30, marginBottom: 10}}>
+                    <span className='wikiTitle'>
+                        {this.props.text}
+                    </span>
+                </div>
+                {this.renderAdminBar()}
+            </div>
         );
     }
 
-    renderReloadButton() {
+    renderAdminBar() {
         if (this.props.isAdmin) {
             return (
-                <button
-                    style={{marginLeft: 20}}
-                    className='ui red button'
-                    onClick={this.props.onReload}>
-                    Reload
-                </button>
+                <div style={{display: 'flex', alignItems: 'center', marginBottom: 30}}>
+                    <span style={{marginLeft: 10}} className='wikiStatus'>
+                        {(this.props.status === 'DRAFT') ? ' (Draft)' : ''}
+                    </span>
+                    <button
+                        style={{marginLeft: 20}}
+                        className='ui red button'
+                        onClick={this.props.onReload}>
+                        Reload
+                    </button>
+                    <span style={{flexGrow: 1}}/>
+                    <span style={{marginLeft: 30}} className='ui buttons'>
+                        <button
+                            className={'ui button' + (this.props.dm ? '' : ' active')}
+                            onClick={() => this.props.setDm(false)}>
+                            Game
+                        </button>
+                        <button
+                            className={'ui button' + (this.props.dm ? ' active' : '')}
+                            onClick={() => this.props.setDm(true)}>
+                            DM
+                        </button>
+                    </span>
+                </div>
             );
         }
     }

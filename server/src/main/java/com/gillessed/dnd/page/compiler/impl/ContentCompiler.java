@@ -5,6 +5,7 @@ import com.gillessed.dnd.model.page.objects.ImmutableWikiSection;
 import com.gillessed.dnd.model.page.objects.ImmutableWikiSectionHeader;
 import com.gillessed.dnd.model.page.objects.WikiContent;
 import com.gillessed.dnd.model.page.objects.WikiHeading;
+import com.gillessed.dnd.model.page.objects.WikiIndex;
 import com.gillessed.dnd.model.page.objects.WikiParagraph;
 import com.gillessed.dnd.model.page.objects.WikiSection;
 import com.gillessed.dnd.model.page.objects.WikiSectionHeader;
@@ -25,7 +26,8 @@ public class ContentCompiler extends AbstractObjectCompiler implements ObjectCom
             WikiParagraph.class,
             WikiSectionHeader.class,
             WikiHeading.class,
-            WikiUnorderedList.class
+            WikiUnorderedList.class,
+            WikiIndex.class
     );
 
     private final ObjectCompilerFactory objectCompilerFactory;

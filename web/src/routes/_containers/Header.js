@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import Header from '../_components/Header'
-import * as _ from 'lodash'
+import {actions} from '../../store/globals/reload';
 
 const mapStateToProps = (state) => {
     return {
@@ -10,4 +10,10 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        reloadAll: () => {dispatch(actions.reloadAll())}
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

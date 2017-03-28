@@ -6,7 +6,7 @@ import com.gillessed.dnd.model.page.Target;
 import com.gillessed.dnd.model.page.WikiObject;
 
 /**
- * The link class is no entirely immutable because its state depends not
+ * The link class is not entirely immutable because its state depends not
  * only on its page's content, but also the presence of other pages.
  */
 public class WikiLink implements WikiObject {

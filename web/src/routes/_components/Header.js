@@ -53,7 +53,7 @@ class Header extends Component {
                     <i className='map icon'/>
                     World Map
                 </a>
-                {this.renderStatusButton()}
+                {this.renderAdminSubMenu()}
             </div>
         </div>
 
@@ -65,15 +65,30 @@ class Header extends Component {
         );
     }
 
-    renderStatusButton() {
+    renderAdminSubMenu = () => {
         if (this.state.isAdmin) {
-            return (
-                <a href={'/app/status'} className='item'>
-                    <i className='bar chart icon'/>
-                    Status
-                </a>
-            );
+            return [
+                <div key={1} className='divider'/>,
+                <div key={2} className='item'>
+                    <i className='dropdown icon'/>
+                    <span className='text'>Admin</span>
+                    <div className='menu'>
+                        <a href={'/app/status'} className='item'>
+                            <i className='bar chart icon'/>
+                            Status
+                        </a>
+                        <a className='item' onClick={this.reloadAllPages}>
+                            <i className='refresh icon'/>
+                            Reload All
+                        </a>
+                    </div>
+                </div>,
+            ];
         }
+    }
+
+    reloadAllPages = () => {
+        this.props.reloadAll();
     }
 
     hideSidebar() {

@@ -1,0 +1,21 @@
+<meta
+    desc="Level 1 Fire Manipulator Spell"
+    status="DRAFT"
+    type="Spell"
+
+    name="Spark"
+    level="1"
+    casterType="Manipulator"
+    casterTypeLevel="1"
+    castingTime="1 standard action"
+    manaConsumption="2mg Fire"
+    range="Touch"
+    savingThrow="Fortitude save for half damage"
+    area="5 ft. radius around caster"
+    description="Create a flurry of sparks that rush out around the caster and singe one's surroundings."
+    effect="Deal 1d6 points of fire damage +1d6 for every 3rd fire level beyond 1 (max 4 total) to all targets next to caster."
+><>
+
+<title> Spark <>
+<content><>
+

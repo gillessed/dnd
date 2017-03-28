@@ -1,37 +1,33 @@
 <meta
-    desc="Mana Type: Steam"
+    desc="Mana Type: Air"
     status="DRAFT"
 ><>
 
-<title>Steam Mana<>
+<title>Air Mana<>
 
 <content>
     <section> Introduction <>
-        <p>Air mana is a type of mana which comes from water vapour and boiled water. It is scalding hot and
-        can singe and burn enemies, and it can also cause light distortions and the like, creating illusions that
-        can confuse and misdirect enemies. It can also become thicker and obscure large areas and make things
-        hard to see.<>
-        <p>Water mana has an affinity with <a t="#mana_*_water">#<>.<>
+        <p>Air mana is a type of mana which comes from the very air and wind itself. Fast and fickle, air mana
+        can be used to create huge gusts of wind fast enough to cut through armor and flesh.<>
+        <p>Air mana is unique in air mana is pretty much always around. There are cases when briefly, there might be
+        no air around, and in those cases, air casters are very useless, only able to produce little gusts with
+        the mana they have.<>
+        <p>Air mana has no affinity with other mana.<>
 
     <section> Caster Types <>
-        <heading level="1">Steam Manipulator<>
-        <p>Ice <a t="#mana_*_manipulators">manipulators<> can strike opponents with heavy chunks of ice, or try and
-        trap them and freeze them.<>
-        <p>In the presence of ice, they can use that ice in their attacks as well.<>
+        <heading level="1">Air Manipulator<>
+        <p>Air <a t="#mana_*_manipulators">manipulators<> can create deadly patterns in the air meant to push around
+        and cut through enemies.<>
 
-        <heading level="1">Steam Armorers<>
-        <p>Steam <a t="#mana_*_armorers">armorers<> emit steam around themselves in an attempt to shield themselves
-        from view, but there is no defensive aspect to this. While using this technique, steam caster can move around
-        without being spotted.<>
-        <p>In the presence of steam, steam armorers can create even more confusing mirages and shield even more people
-        from vision.<>
+        <heading level="1">Air Armorers<>
+        <p>Air <a t="#mana_*_armorers">armorers<> surround themselves with exremely fast moving currents of air. Fast
+        enough to deflect blades and also tear through armor.<>
 
-        <heading level="1">Steam Animators<>
-        <p>Steam <a t="#mana_*_animators">animators<> elementals are very sparse and can only hit with weak attacks.
-        However, they are practically invisible and unnoticeable, and can also create illusions of their own.<>
-        <p>In the presence of steam, they can create even larger elementals.<>
+        <heading level="1">Air Animators<>
+        <p>Air <a t="#mana_*_animators">animators<> create air elementals which are swirling turbulent masses of air.
+        They are wicked fast and hard to destroy, and can pack a punch if they get big enough.<>
 
-        <heading level="1">Steam Item Wielders<>
-        <p>Ice <a t="#mana_*_itemWielders">item wielders<> wield items that emit ice on use.
-        Examples include steam cloaks and fog splashers.<>
+        <heading level="1">Air Item Wielders<>
+        <p>Air <a t="#mana_*_itemWielders">item wielders<> wield items that emit air on use.
+        Examples include boreal blades and flying carpets.<>
 <>

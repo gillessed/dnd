@@ -1,0 +1,30 @@
+<meta
+    desc="Mana Type: Lava"
+    status="DRAFT"
+><>
+
+<title>Lava Mana<>
+
+<content>
+    <section> Introduction <>
+        <p>Lava mana is a type of mana which comes from molten rock. It is thick and viscous and can be extremely
+        deadly when used as a weapon.<>
+        <p>Lava mana has an affinity with <a t="#mana_*_fire">#<> and <a t="#mana_*_stone">#<>.<>
+
+    <section> Caster Types <>
+        <heading level="1">Lava Manipulator<>
+        <p>Lava <a t="#mana_*_manipulators">manipulators<> throw about molten lava to burn their enemies and reduce
+        them to nothing.<>
+
+        <heading level="1">Lava Armorers<>
+        <p>Lava <a t="#mana_*_armorers">armorers<> coat themselves in thick layers of molten rock which is very strong
+        at deflecting attacks, but can also be used to great effect when hitting enemies.<>
+
+        <heading level="1">Lava Animators<>
+        <p>Lava <a t="#mana_*_animators">animators<> create lava elementals which are ozzing and melting constructions
+        of lava which move slowly but can inflict severe damage to foes.<>
+
+        <heading level="1">Lava Item Wielders<>
+        <p>Lava <a t="#mana_*_itemWielders">item wielders<> wield items that emit lava on use.
+        Examples include lava swords and lava drops.<>
+<>

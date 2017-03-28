@@ -2,6 +2,7 @@ package com.gillessed.dnd.page.compiler;
 
 import com.gillessed.dnd.model.page.objects.WikiContent;
 import com.gillessed.dnd.model.page.objects.WikiHeading;
+import com.gillessed.dnd.model.page.objects.WikiIndex;
 import com.gillessed.dnd.model.page.objects.WikiLink;
 import com.gillessed.dnd.model.page.objects.WikiMeta;
 import com.gillessed.dnd.model.page.objects.WikiSection;
@@ -10,6 +11,7 @@ import com.gillessed.dnd.model.page.objects.WikiTitle;
 import com.gillessed.dnd.page.compiler.exception.CompilerException;
 import com.gillessed.dnd.page.compiler.impl.ContentCompiler;
 import com.gillessed.dnd.page.compiler.impl.HeadingCompiler;
+import com.gillessed.dnd.page.compiler.impl.IndexCompiler;
 import com.gillessed.dnd.page.compiler.impl.LinkCompiler;
 import com.gillessed.dnd.page.compiler.impl.ListItemObjectCompiler;
 import com.gillessed.dnd.page.compiler.impl.MetaCompiler;
@@ -47,6 +49,7 @@ public class ObjectCompilerFactory {
                 .put(WikiContent.type, new ContentCompiler(this))
                 .put(DM_CONTENT_SHORTHAND, new ContentCompiler(this))
                 .put(WikiMeta.type, new MetaCompiler())
+                .put(WikiIndex.type, new IndexCompiler())
                 .build();
     }
 

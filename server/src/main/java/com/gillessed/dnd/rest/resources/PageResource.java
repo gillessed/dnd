@@ -20,6 +20,7 @@ import com.google.inject.Singleton;
 
 import javax.annotation.security.PermitAll;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -28,6 +29,7 @@ import java.io.IOException;
 import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 @Singleton
@@ -59,10 +61,19 @@ public class PageResource {
         try {
             WikiPage page = pageService.getPage(target);
             page = removeDmContentIfNotAuthorized(page);
-            List<DirectoryEntry> directoryEntries = pageService.getDirectoryContents(target);
+
+            List<DirectoryEntry> children = pageService.getChildren(target);
+
+            Target parent = target.getParent();
+            List<DirectoryEntry> directoryEntries = parent != null
+                    ? pageService.getChildren(parent)
+                    : Collections.emptyList();
+
             List<DirectoryEntry> parentEntries = pageService.getParentPaths(target);
+
             return new PageResponse.Builder()
                     .page(page)
+                    .children(children)
                     .directoryEntries(directoryEntries)
                     .parentPaths(parentEntries)
                     .build();
@@ -82,6 +93,16 @@ public class PageResource {
             throw new DndException(DndError.Type.WIKI_PAGE_NOT_FOUND.error(), e);
         } catch (IOException | ParsingException e) {
             throw new DndException(DndError.Type.ERROR_BUILDING_PAGE.error(), e);
+        }
+    }
+
+    @GET
+    @Path("/reload-all")
+    public void reloadAll() {
+        try {
+            pageService.reloadAll();
+        } catch (Exception e) {
+            throw new DndException(DndError.Type.WIKI_PAGE_NOT_FOUND.error(), e);
         }
     }
 

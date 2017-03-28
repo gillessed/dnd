@@ -5,6 +5,7 @@ import WikiSection from '../_containers/WikiSection'
 import WikiPath from '../_containers/WikiPathContainer'
 import LeftPageSidebar from '../_containers/LeftPageSidebar'
 import RightPageSidebar from '../_containers/RightPageSidebar'
+import WikiSpellContent from './WikiSpellContent';
 import './Page.scss'
 
 export class Page extends Component {
@@ -89,10 +90,14 @@ export class Page extends Component {
 
     renderWikiSections() {
         if (this.props.pageData) {
-            if (this.state.renderDmContent) {
-                return this.props.pageData.dmContent.content.map(this.renderWikiSection.bind(this));
+            if (this.props.pageData.metadata.type === 'SPELL') {
+                return <WikiSpellContent spell={this.props.pageData.metadata.object}/>;
             } else {
-                return this.props.pageData.pageContent.content.map(this.renderWikiSection.bind(this));
+                if (this.state.renderDmContent) {
+                    return this.props.pageData.dmContent.content.map(this.renderWikiSection.bind(this));
+                } else {
+                    return this.props.pageData.pageContent.content.map(this.renderWikiSection.bind(this));
+                }
             }
         } else if (!this.props.fetchingPage) {
             return <p>Click <Link to='/app/wiki'>here</Link> to return to the main wiki page.</p>;
@@ -101,6 +106,7 @@ export class Page extends Component {
 
     renderWikiSection(wikiSection) {
         return <WikiSection
+            connected={this.props.pageData.metadata.type === 'DOCUMENT'}
             text={wikiSection.text}
             wikiObjects={wikiSection.wikiObjects}
             sectionNumber={this.sectionNumber++}

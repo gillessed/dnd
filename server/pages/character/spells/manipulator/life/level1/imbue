@@ -1,0 +1,19 @@
+<meta
+    desc="Level 1 Life Manipulator Spell"
+    status="DRAFT"
+    type="Spell"
+
+    name="Imbue"
+    level="1"
+    casterType="Manipulator"
+    casterTypeLevel="1"
+    castingTime="1 standard action"
+    manaConsumption="1mg Life"
+    range="30 ft."
+    description="Magnifies the healing powers of the target, healing up small wounds."
+    effect="Heals for 1d8 hp + 1 hp per life leve (max 4)."
+><>
+
+<title> Imbue <>
+<content><>
+

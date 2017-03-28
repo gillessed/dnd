@@ -10,7 +10,8 @@ import java.util.List;
 
 public interface PageService {
     WikiPage getPage(Target target) throws IOException, ParsingException;
+    void reloadAll();
     void reloadPage(Target target) throws IOException, ParsingException;
-    List<DirectoryEntry> getDirectoryContents(Target target);
+    List<DirectoryEntry> getChildren(Target target);
     List<DirectoryEntry> getParentPaths(Target target);
 }

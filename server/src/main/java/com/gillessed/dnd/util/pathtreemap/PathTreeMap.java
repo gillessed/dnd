@@ -8,6 +8,7 @@ public interface PathTreeMap<T, K extends PathTreeMap.Key<T, K>, V> {
     PathTreeMapEntry<T, K, V> getEntry(K key);
     V get(K key);
     V remove(K key);
+    void clear();
     void removeBranch(K key);
     void forEach(BiConsumer<K, PathTreeMapEntry<T, K, V>> consumer);
     Collection<K> keySet();

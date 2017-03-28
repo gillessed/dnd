@@ -10,17 +10,21 @@
     <section> Process <>
         <p>When a human touches a mana stone, the mana stone shines out a bright line in the opposite direction,
         and whatever this light shines down upon starts to crumple to dust. This leftover dust is mana dust, that cen
-        be used to create magical effects. <>
+        be used to create magical effects.<>
 
         <p>The process of converting matter to mana dust takes a fair amount of time. However, the larger the
         <a t="#leviathanStone">#<>, the faster the process. It also differs depending on the type of matter. Certain
         kinds dissolve faster than others.<>
 
+        <p>Extraction is also rather unique for living creatures. Since they generate their own mana, they are sapped
+        instead of disintegrated. The feeling is not painful, but is somewhat draining. Somewhat akin to the feel
+        after having given blood.<>
+
         <p>TODO:CalculatorTable<>
     <section> Sigils <>
         <p>The way mana dust is actually used to cast is by drawing sigils using the mana dust. The complex relationship
-        between mana particles is not well understood, but certain shapes and patterns create different kinds of
-        effects.<>
+        between mana particles is not well understood, but arranging the dust into specific patterns and shapes creates
+        reactions in the mana, and causes effects on its matter type.<>
 
         <p>These sigils can be drawn on any surface. Once complete, they activate immediately and create the desired
         effect. After the spell has been completed, the sigil is gone and the mana dust is consumed. The mana has
@@ -33,6 +37,9 @@
         <p>Sigils can be drawn on the spot, but can also be stored on a scroll nearly completed, requiring but a small
         touch to cast the spell. This takes some preparation, and cannot be changed once set, but casting this becomes
         a lot safer and more consistent.<>
+
+        <p>Coming up with a sigil to do something new is an art and is practiced by many. Rarely does it ever work well
+        in the field, but with experimentation and repetition, new sigils are being discovered all the time.<>
 
     <section>Material<>
         <p>Normally, sigils spells are made to create the material and then manipulate it. Create matter takes a lot of

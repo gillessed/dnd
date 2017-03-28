@@ -1,0 +1,20 @@
+<meta
+    desc="Level 1 Death Manipulator Spell"
+    status="DRAFT"
+    type="Spell"
+
+    name="Drain"
+    level="1"
+    casterType="Manipulator"
+    casterTypeLevel="1"
+    castingTime="1 standard action"
+    manaConsumption="1mg Death"
+    range="30 ft."
+    savingThrow="Will save (+3) for no effect"
+    effect="Drain the vigor out of the target, making its attacks less effective."
+    description="Target takes -2 to attack rolls for 1 turn + 1 turn for every 3 death levels (max 4)."
+><>
+
+<title> Drain <>
+<content><>
+

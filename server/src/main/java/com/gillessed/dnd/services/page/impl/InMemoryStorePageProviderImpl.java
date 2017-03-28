@@ -65,7 +65,14 @@ public class InMemoryStorePageProviderImpl implements PageProvider {
     @Override
     public void start() {
         log.info("Running initial page load.");
+        reloadPages();
+        log.info("Finished initial page load.");
+    }
+
+    @Override
+    public void reloadPages() {
         lock.writeLock().lock();
+        pageMap.clear();
         try {
             try {
                 Files.walkFileTree(root, new SimpleFileVisitor<Path>() {
@@ -77,7 +84,7 @@ public class InMemoryStorePageProviderImpl implements PageProvider {
                     }
                 });
             } catch (IOException e) {
-                log.error("Error walking tree for initial page load.", e);
+                log.error("Error walking tree during page load.", e);
                 Throwables.propagate(e);
             }
             log.info("Computing link targets.");
@@ -85,7 +92,6 @@ public class InMemoryStorePageProviderImpl implements PageProvider {
         } finally {
             lock.writeLock().unlock();
         }
-        log.info("Finished initial page load.");
     }
 
     private void addPage(Path path) {

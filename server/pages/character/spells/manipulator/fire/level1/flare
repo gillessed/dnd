@@ -1,0 +1,18 @@
+<meta
+    desc="Level 1 Fire Manipulator Spell"
+    status="DRAFT"
+    type="Spell"
+
+    name="Flare"
+    level="1"
+    casterType="Manipulator"
+    casterTypeLevel="1"
+    castingTime="1 standard action"
+    manaConsumption="1mg Fire"
+    range="30 ft."
+    description="Shoot a small ball of fire."
+    effect="Deal 1d8 points of fire damage +1d8 for every 3rd fire level beyond 1 (max 4 total)."
+><>
+
+<title> Flare <>
+<content><>

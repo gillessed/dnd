@@ -12,6 +12,7 @@ import java.util.List;
 @JsonDeserialize(as = ImmutablePageResponse.class)
 public interface PageResponse {
     WikiPage getPage();
+    List<DirectoryEntry> getChildren();
     List<DirectoryEntry> getDirectoryEntries();
     List<DirectoryEntry> getParentPaths();
 
